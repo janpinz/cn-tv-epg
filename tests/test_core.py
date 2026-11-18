@@ -140,12 +140,16 @@ class TestExporters(unittest.TestCase):
 class TestConfig(unittest.TestCase):
     def test_registry_loads(self):
         settings = load_settings(ROOT)
-        self.assertEqual(len(settings.groups), 3)
-        self.assertEqual([g.id for g in settings.groups], ["cctv", "satellite", "jiangsu"])
+        self.assertEqual(len(settings.groups), 4)
+        self.assertEqual(
+            [g.id for g in settings.groups], ["cctv", "satellite", "jiangsu", "other"]
+        )
         ids = [c.id for c in settings.channels]
         self.assertEqual(len(ids), len(set(ids)), "频道 id 必须唯一")
         self.assertIn("js-city", ids)
         self.assertIn("sat-jiangsu", ids)
+        self.assertIn("kaku", ids)
+        self.assertIn("middle-school", ids)
 
     def test_every_source_exists(self):
         settings = load_settings(ROOT)
@@ -165,7 +169,7 @@ http://example/2
 http://example/3
 #EXTINF:-1 tvg-id="江苏体育休闲" tvg-name="江苏体育休闲" group-title="江苏频道",江苏体育休闲
 http://example/4
-#EXTINF:-1 tvg-id="中学生" tvg-name="中学生" group-title="其它频道",中学生
+#EXTINF:-1 tvg-id="不存在的频道" tvg-name="不存在的频道" group-title="其它频道",不存在的频道
 http://example/5
 """
 
@@ -210,7 +214,7 @@ http://example/5
         self.assertIn('tvg-id="sat-beijing"', patched)
         self.assertNotIn('tvg-id="CCTV1"', patched)
         # 未匹配的条目原样保留，流地址不动
-        self.assertIn('tvg-id="中学生"', patched)
+        self.assertIn('tvg-id="不存在的频道"', patched)
         self.assertIn("http://example/5", patched)
         self.assertEqual(report.total, 5)
         self.assertEqual(report.matched, 4)

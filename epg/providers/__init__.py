@@ -7,12 +7,14 @@
 from __future__ import annotations
 
 from .base import Provider
+from .diyp import DiypProvider
 from .tvmao import TvmaoProvider
 from .xmltv import XmltvProvider
 
 PROVIDERS: dict[str, type[Provider]] = {
     XmltvProvider.kind: XmltvProvider,
     TvmaoProvider.kind: TvmaoProvider,
+    DiypProvider.kind: DiypProvider,
 }
 
 
@@ -23,4 +25,4 @@ def get_provider(kind: str) -> type[Provider]:
         raise KeyError(f"未知的数据源类型：{kind}（可用：{', '.join(PROVIDERS)}）") from exc
 
 
-__all__ = ["Provider", "TvmaoProvider", "XmltvProvider", "PROVIDERS", "get_provider"]
+__all__ = ["Provider", "TvmaoProvider", "XmltvProvider", "DiypProvider", "PROVIDERS", "get_provider"]

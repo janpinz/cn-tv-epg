@@ -34,6 +34,13 @@ kind = "tvmao"
 enabled = true
 base = "https://www.tvmao.com"
 
+[[sources]]
+# 按频道名查询：整包 XMLTV 里没有的频道（中学生、东方财经、生活时尚…）用这个补
+id = "diyp-51zmt"
+kind = "diyp"
+enabled = true
+base = "http://epg.51zmt.top:8000/api/diyp/"
+
 [output]
 # 生成目录
 dir = "dist"

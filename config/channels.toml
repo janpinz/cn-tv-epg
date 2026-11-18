@@ -149,3 +149,17 @@ channels = [
   { id = "sq-zh",      name = "宿迁综合",       source = "tvmao", ref = "SQTV-SQXX" },
   { id = "sq-gg",      name = "宿迁公共",       source = "tvmao", ref = "SQTV-SQGG" },
 ]
+
+# ---------------------------------------------------------------------
+# 四、其它频道
+# 这几个不在整包 XMLTV 里，分别用电视猫（按代码）和 diyp 接口（按名字）单独抓
+# ---------------------------------------------------------------------
+[[group]]
+id = "other"
+name = "其它频道"
+channels = [
+  { id = "kaku",          name = "卡酷少儿", source = "tvmao",      ref = "BTV-BTV10" },
+  { id = "middle-school", name = "中学生",   source = "diyp-51zmt", ref = "中学生" },
+  { id = "df-caijing",    name = "东方财经", source = "diyp-51zmt", ref = "东方财经" },
+  { id = "life-fashion",  name = "生活时尚", source = "diyp-51zmt", ref = "生活时尚" },
+]
