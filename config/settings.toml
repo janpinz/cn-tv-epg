@@ -1,0 +1,43 @@
+# =====================================================================
+# 全局设置 — 一般不需要改动
+# 频道清单请编辑 config/channels.toml
+# =====================================================================
+
+[general]
+# 节目单时区。全国频道统一使用北京时间。
+timezone = "Asia/Shanghai"
+# 生成时向前 / 向后保留的天数（央视、卫视取决于数据源实际提供范围）
+days_back = 0
+days_ahead = 1
+
+[fetch]
+# 单次请求超时（秒）
+timeout = 30
+# 失败重试次数
+retries = 3
+# 每次请求之间的间隔（秒），对上游站点保持友好
+delay = 0.6
+# User-Agent
+user_agent = "cn-tv-epg/1.0 (+https://github.com/janpinz/cn-tv-epg)"
+
+[[sources]]
+# 央视 + 卫视：一份 XMLTV 全量数据，一次请求即可
+id = "xmltv-51zmt"
+kind = "xmltv"
+enabled = true
+url = "http://epg.51zmt.top:8000/e.xml"
+
+[[sources]]
+# 江苏地方台：电视猫按频道抓取（央视、卫视同样可用，作为备用源）
+id = "tvmao"
+kind = "tvmao"
+enabled = true
+base = "https://www.tvmao.com"
+
+[output]
+# 生成目录
+dir = "dist"
+# 历史快照目录（按日期归档，便于回滚与对比）
+archive_dir = "data/archive"
+# 是否生成历史快照
+archive = true

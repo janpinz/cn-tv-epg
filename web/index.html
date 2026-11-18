@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>电视节目单 · 央视 / 卫视 / 江苏地方台</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">EPG</span>
+    <div class="titles">
+      <h1>电视节目单</h1>
+      <p id="meta" class="meta">加载中…</p>
+    </div>
+  </div>
+
+  <div class="controls">
+    <nav id="groups" class="tabs" aria-label="频道分组"></nav>
+    <div class="right">
+      <select id="date" class="date" aria-label="选择日期"></select>
+      <input id="search" class="search" type="search" placeholder="搜索频道或节目…" aria-label="搜索">
+    </div>
+  </div>
+</header>
+
+<main class="layout">
+  <aside class="sidebar" id="channels" aria-label="频道列表"></aside>
+  <section class="content">
+    <div id="empty" class="empty" hidden>没有匹配的频道或节目</div>
+    <div id="guide" class="guide"></div>
+  </section>
+</main>
+
+<footer class="footer">
+  <span id="footer-stats"></span>
+  <span class="sep">·</span>
+  <a href="../dist/epg.xml">XMLTV</a>
+  <a href="../dist/epg.json">JSON</a>
+  <span class="sep">·</span>
+  <span>数据来源：公开电视节目预告，仅供参考</span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

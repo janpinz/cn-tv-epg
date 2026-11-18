@@ -1,0 +1,151 @@
+# =====================================================================
+# 频道注册表 —— 这是本项目唯一需要手工维护的「频道清单」
+#
+# 字段说明
+#   id      频道唯一标识（用于文件、接口、播放器匹配，一旦发布请勿修改）
+#   name    显示名称（节目单里看到的名字）
+#   source  数据源 id，对应 config/settings.toml 里 [[sources]] 的 id
+#   ref     频道在该数据源中的原始名称/编号
+#
+# 新增频道：复制一行，改 id / name / ref 即可。
+# 不确定 ref 怎么写？先跑：
+#   python -m epg discover --source tvmao --province 320000
+# 或
+#   python -m epg resolve --source xmltv-51zmt --name 湖南卫视
+# =====================================================================
+
+# ---------------------------------------------------------------------
+# 一、央视（CCTV）
+# ---------------------------------------------------------------------
+[[group]]
+id = "cctv"
+name = "央视"
+channels = [
+  { id = "cctv1",      name = "CCTV-1 综合",       source = "xmltv-51zmt", ref = "CCTV1" },
+  { id = "cctv2",      name = "CCTV-2 财经",       source = "xmltv-51zmt", ref = "CCTV2" },
+  { id = "cctv3",      name = "CCTV-3 综艺",       source = "xmltv-51zmt", ref = "CCTV3" },
+  { id = "cctv4",      name = "CCTV-4 中文国际",   source = "xmltv-51zmt", ref = "CCTV4" },
+  { id = "cctv5",      name = "CCTV-5 体育",       source = "xmltv-51zmt", ref = "CCTV5" },
+  { id = "cctv5plus",  name = "CCTV-5+ 体育赛事",  source = "xmltv-51zmt", ref = "CCTV5+" },
+  { id = "cctv6",      name = "CCTV-6 电影",       source = "xmltv-51zmt", ref = "CCTV6" },
+  { id = "cctv7",      name = "CCTV-7 国防军事",   source = "xmltv-51zmt", ref = "CCTV7" },
+  { id = "cctv8",      name = "CCTV-8 电视剧",     source = "xmltv-51zmt", ref = "CCTV8" },
+  { id = "cctv9",      name = "CCTV-9 纪录",       source = "xmltv-51zmt", ref = "CCTV9" },
+  { id = "cctv10",     name = "CCTV-10 科教",      source = "xmltv-51zmt", ref = "CCTV10" },
+  { id = "cctv11",     name = "CCTV-11 戏曲",      source = "xmltv-51zmt", ref = "CCTV11" },
+  { id = "cctv12",     name = "CCTV-12 社会与法",  source = "xmltv-51zmt", ref = "CCTV12" },
+  { id = "cctv13",     name = "CCTV-13 新闻",      source = "xmltv-51zmt", ref = "CCTV13" },
+  { id = "cctv14",     name = "CCTV-14 少儿",      source = "xmltv-51zmt", ref = "CCTV14" },
+  { id = "cctv15",     name = "CCTV-15 音乐",      source = "xmltv-51zmt", ref = "CCTV15" },
+  { id = "cctv16",     name = "CCTV-16 奥林匹克",  source = "xmltv-51zmt", ref = "CCTV16" },
+  { id = "cctv17",     name = "CCTV-17 农业农村",  source = "xmltv-51zmt", ref = "CCTV17" },
+  { id = "cctv4k",     name = "CCTV-4K 超高清",    source = "xmltv-51zmt", ref = "CCTV4K" },
+]
+
+# ---------------------------------------------------------------------
+# 二、卫视（省级上星综合频道）
+# ---------------------------------------------------------------------
+[[group]]
+id = "satellite"
+name = "卫视"
+channels = [
+  { id = "sat-hunan",     name = "湖南卫视",   source = "xmltv-51zmt", ref = "湖南卫视" },
+  { id = "sat-zhejiang",  name = "浙江卫视",   source = "xmltv-51zmt", ref = "浙江卫视" },
+  { id = "sat-jiangsu",   name = "江苏卫视",   source = "xmltv-51zmt", ref = "江苏卫视" },
+  { id = "sat-beijing",   name = "北京卫视",   source = "xmltv-51zmt", ref = "北京卫视" },
+  { id = "sat-dongfang",  name = "东方卫视",   source = "xmltv-51zmt", ref = "东方卫视" },
+  { id = "sat-anhui",     name = "安徽卫视",   source = "xmltv-51zmt", ref = "安徽卫视" },
+  { id = "sat-guangdong", name = "广东卫视",   source = "xmltv-51zmt", ref = "广东卫视" },
+  { id = "sat-shenzhen",  name = "深圳卫视",   source = "xmltv-51zmt", ref = "深圳卫视" },
+  { id = "sat-liaoning",  name = "辽宁卫视",   source = "xmltv-51zmt", ref = "辽宁卫视" },
+  { id = "sat-hainan",    name = "海南卫视",   source = "xmltv-51zmt", ref = "旅游卫视" },
+  { id = "sat-shandong",  name = "山东卫视",   source = "xmltv-51zmt", ref = "山东卫视" },
+  { id = "sat-tianjin",   name = "天津卫视",   source = "xmltv-51zmt", ref = "天津卫视" },
+  { id = "sat-chongqing", name = "重庆卫视",   source = "xmltv-51zmt", ref = "重庆卫视" },
+  { id = "sat-dongnan",   name = "东南卫视",   source = "xmltv-51zmt", ref = "东南卫视" },
+  { id = "sat-gansu",     name = "甘肃卫视",   source = "xmltv-51zmt", ref = "甘肃卫视" },
+  { id = "sat-guangxi",   name = "广西卫视",   source = "xmltv-51zmt", ref = "广西卫视" },
+  { id = "sat-guizhou",   name = "贵州卫视",   source = "xmltv-51zmt", ref = "贵州卫视" },
+  { id = "sat-hebei",     name = "河北卫视",   source = "xmltv-51zmt", ref = "河北卫视" },
+  { id = "sat-heilongjiang", name = "黑龙江卫视", source = "xmltv-51zmt", ref = "黑龙江卫视" },
+  { id = "sat-henan",     name = "河南卫视",   source = "xmltv-51zmt", ref = "河南卫视" },
+  { id = "sat-hubei",     name = "湖北卫视",   source = "xmltv-51zmt", ref = "湖北卫视" },
+  { id = "sat-jiangxi",   name = "江西卫视",   source = "xmltv-51zmt", ref = "江西卫视" },
+  { id = "sat-jilin",     name = "吉林卫视",   source = "xmltv-51zmt", ref = "吉林卫视" },
+  { id = "sat-neimenggu", name = "内蒙古卫视", source = "xmltv-51zmt", ref = "内蒙古卫视" },
+  { id = "sat-ningxia",   name = "宁夏卫视",   source = "xmltv-51zmt", ref = "宁夏卫视" },
+  { id = "sat-shanxi",    name = "山西卫视",   source = "xmltv-51zmt", ref = "山西卫视" },
+  { id = "sat-shaanxi",   name = "陕西卫视",   source = "xmltv-51zmt", ref = "陕西卫视" },
+  { id = "sat-sichuan",   name = "四川卫视",   source = "xmltv-51zmt", ref = "四川卫视" },
+  { id = "sat-xinjiang",  name = "新疆卫视",   source = "xmltv-51zmt", ref = "新疆卫视" },
+  { id = "sat-yunnan",    name = "云南卫视",   source = "xmltv-51zmt", ref = "云南卫视" },
+  { id = "sat-qinghai",   name = "青海卫视",   source = "xmltv-51zmt", ref = "青海卫视" },
+  { id = "sat-bingtuan",  name = "兵团卫视",   source = "xmltv-51zmt", ref = "兵团卫视" },
+  { id = "sat-yanbian",   name = "延边卫视",   source = "xmltv-51zmt", ref = "延边卫视" },
+  { id = "sat-huanghe",   name = "黄河卫视",   source = "xmltv-51zmt", ref = "黄河卫视" },
+  { id = "sat-xiamen",    name = "厦门卫视",   source = "xmltv-51zmt", ref = "厦门卫视" },
+  { id = "sat-kangba",    name = "康巴卫视",   source = "xmltv-51zmt", ref = "康巴卫视" },
+  { id = "sat-xizang",    name = "西藏卫视",   source = "xmltv-51zmt", ref = "西藏卫视" },
+  { id = "sat-sansha",    name = "三沙卫视",   source = "xmltv-51zmt", ref = "三沙卫视" },
+  { id = "sat-haixia",    name = "海峡卫视",   source = "xmltv-51zmt", ref = "海峡卫视" },
+  { id = "sat-jinying",   name = "金鹰卡通",   source = "xmltv-51zmt", ref = "金鹰卡通" },
+  { id = "sat-haha",      name = "哈哈炫动",   source = "xmltv-51zmt", ref = "哈哈炫动" },
+  { id = "sat-edu1",      name = "中国教育-1", source = "xmltv-51zmt", ref = "中国教育1台" },
+  { id = "sat-edu2",      name = "中国教育-2", source = "xmltv-51zmt", ref = "中国教育2台" },
+]
+
+# ---------------------------------------------------------------------
+# 三、江苏地方台（省级地面频道 + 各市/县台）
+# 数据来自电视猫，按频道代码抓取
+# ---------------------------------------------------------------------
+[[group]]
+id = "jiangsu"
+name = "江苏地方台"
+channels = [
+  # —— 江苏省台地面频道 ——
+  { id = "js-city",    name = "江苏城市",       source = "tvmao", ref = "JSTV-JSTV3" },
+  { id = "js-variety", name = "江苏综艺",       source = "tvmao", ref = "JSTV-JSTV2" },
+  { id = "js-movie",   name = "江苏影视",       source = "tvmao", ref = "JSTV-JSTV4" },
+  { id = "js-sports",  name = "江苏休闲体育",   source = "tvmao", ref = "JSTV-JSTV6" },
+  { id = "js-cartoon", name = "江苏优漫卡通",   source = "tvmao", ref = "JSTV-JSTV7" },
+  { id = "js-news",    name = "江苏新闻",       source = "tvmao", ref = "JSTV-JSTV8" },
+  { id = "js-edu",     name = "江苏教育",       source = "tvmao", ref = "JSTV-JSTV9" },
+  { id = "js-intl",    name = "江苏国际",       source = "tvmao", ref = "JSTV-JSTV10" },
+  # —— 南京 ——
+  { id = "nj-news",    name = "南京新闻综合",   source = "tvmao", ref = "NJTV-NJTV1" },
+  { id = "nj-edu",     name = "南京教科",       source = "tvmao", ref = "NJTV-NJTV3" },
+  { id = "nj-18life",  name = "南京十八生活",   source = "tvmao", ref = "NJTV-NJTV4" },
+  { id = "nj-doc",     name = "南京文旅纪录",   source = "tvmao", ref = "NJTV-NJTV5" },
+  { id = "nj-18",      name = "南京十八",       source = "tvmao", ref = "NJTV-NJTV6" },
+  { id = "nj-info",    name = "南京信息",       source = "tvmao", ref = "NJTV-NJTV8" },
+  # —— 苏州 / 无锡地区 ——
+  { id = "sz-news",    name = "苏州新闻综合",   source = "tvmao", ref = "SUZHOUTV-SUZHOUTV1" },
+  { id = "sz-eco",     name = "苏州社会经济",   source = "tvmao", ref = "SUZHOUTV-SUZHOUTV2" },
+  { id = "zjg-news",   name = "张家港新闻综合", source = "tvmao", ref = "ZJGTV-ZJGXWZH" },
+  { id = "yx-news",    name = "宜兴新闻",       source = "tvmao", ref = "YIXINGTV-YXXINWEN" },
+  # —— 常州 ——
+  { id = "cz-news",    name = "常州新闻综合",   source = "tvmao", ref = "CHANGZHOU-CHANGZHOU1" },
+  { id = "cz-tuwen",   name = "常州图文",       source = "tvmao", ref = "CHANGZHOU-CHANGZHOUTUWEN" },
+  # —— 南通 ——
+  { id = "nt-news",    name = "南通新闻综合",   source = "tvmao", ref = "NTTV-NTTV1" },
+  { id = "rg-news",    name = "如皋新闻综合",   source = "tvmao", ref = "NTRGTV-RGXWZH" },
+  { id = "rg-eco",     name = "如皋经济生活",   source = "tvmao", ref = "NTRGTV-RGJJSH" },
+  { id = "rg-dj",      name = "如皋党建",       source = "tvmao", ref = "NTRGTV-RGDJ" },
+  # —— 徐州 ——
+  { id = "xz-news",    name = "徐州新闻综合",   source = "tvmao", ref = "XZTV-XZTV1" },
+  { id = "xz-eco",     name = "徐州经济生活",   source = "tvmao", ref = "XZTV-XZTV2" },
+  { id = "xz-movie",   name = "徐州影视文旅",   source = "tvmao", ref = "XZTV-XZTV3" },
+  # —— 扬州 / 镇江 / 泰州 ——
+  { id = "yz-hj",      name = "扬州邗江",       source = "tvmao", ref = "YZTV-YZHANJ" },
+  { id = "zj-news",    name = "镇江新闻",       source = "tvmao", ref = "ZHENJIANGTV-ZHENJIANGTV1" },
+  { id = "tz-1",       name = "泰州一套",       source = "tvmao", ref = "TZTV-TZTV1" },
+  # —— 盐城 / 淮安 / 连云港 / 宿迁 ——
+  { id = "yc-1",       name = "盐城一套",       source = "tvmao", ref = "YANCHENGTV-YANCHENGTV1" },
+  { id = "ha-news",    name = "淮安新闻",       source = "tvmao", ref = "HATV-HATV1" },
+  { id = "ha-public",  name = "淮安公共",       source = "tvmao", ref = "HATV-HATV2" },
+  { id = "lyg-news",   name = "连云港综合",     source = "tvmao", ref = "LYGTV-LYG1" },
+  { id = "dh-zh",      name = "东海综合",       source = "tvmao", ref = "DHTV-DHZH" },
+  { id = "dh-ys",      name = "东海资讯",       source = "tvmao", ref = "DHTV-DHYS" },
+  { id = "sq-zh",      name = "宿迁综合",       source = "tvmao", ref = "SQTV-SQXX" },
+  { id = "sq-gg",      name = "宿迁公共",       source = "tvmao", ref = "SQTV-SQGG" },
+]

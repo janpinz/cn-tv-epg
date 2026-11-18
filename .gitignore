@@ -1,0 +1,21 @@
+# 抓取缓存（可随时删除，重新 fetch 即可）
+data/raw/
+data/cache/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 本地预览
+*.log

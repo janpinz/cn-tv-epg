@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cn-tv-epg"
+version = "1.0.0"
+description = "可维护、可自动更新的中文电视节目单（央视 / 卫视 / 江苏地方台），输出 XMLTV 与 JSON"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "janpinz" }]
+keywords = ["epg", "xmltv", "iptv", "cctv", "jiangsu"]
+dependencies = []  # 零第三方依赖：仅用标准库
+
+[project.scripts]
+epg = "epg.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/janpinz/cn-tv-epg"
+
+[tool.setuptools]
+packages = ["epg", "epg.providers", "epg.exporters"]
