@@ -11,6 +11,16 @@ from ..models import Guide, fmt_xmltv_time
 GENERATOR_URL = "https://github.com/janpinz/cn-tv-epg"
 
 
+def _display_names(channel) -> list[str]:
+    """别名优先、规范名兜底，去重保序。"""
+    names: list[str] = []
+    for name in (*channel.aliases, channel.name):
+        name = (name or "").strip()
+        if name and name not in names:
+            names.append(name)
+    return names
+
+
 def build_xmltv(guide: Guide) -> bytes:
     tv = ET.Element(
         "tv",
@@ -23,7 +33,10 @@ def build_xmltv(guide: Guide) -> bytes:
 
     for channel in guide.channels:
         node = ET.SubElement(tv, "channel", {"id": channel.id})
-        ET.SubElement(node, "display-name", {"lang": "zh"}).text = channel.name
+        # 有的播放器不看 tvg-id，而是拿播放列表里的频道名（tvg-name）去比对
+        # <display-name>。所以把别名排在前面、规范名放最后，两种匹配都能命中。
+        for name in _display_names(channel):
+            ET.SubElement(node, "display-name", {"lang": "zh"}).text = name
         if channel.logo:
             ET.SubElement(node, "icon", {"src": channel.logo})
 
