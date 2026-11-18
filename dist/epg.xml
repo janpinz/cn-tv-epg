@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tv SYSTEM "xmltv.dtd">
-<tv generator-info-name="cn-tv-epg 1.0.0" generator-info-url="https://github.com/janpinz/cn-tv-epg" date="20261118155931 +0800">
+<tv generator-info-name="cn-tv-epg 1.0.0" generator-info-url="https://github.com/janpinz/cn-tv-epg" date="20261118160203 +0800">
   <channel id="cctv1">
     <display-name lang="zh">CCTV-1 综合</display-name>
   </channel>
