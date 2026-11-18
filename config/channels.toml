@@ -26,7 +26,7 @@ channels = [
   { id = "cctv3",      name = "CCTV-3 综艺",       source = "xmltv-51zmt", ref = "CCTV3" },
   { id = "cctv4",      name = "CCTV-4 中文国际",   source = "xmltv-51zmt", ref = "CCTV4" },
   { id = "cctv5",      name = "CCTV-5 体育",       source = "xmltv-51zmt", ref = "CCTV5" },
-  { id = "cctv5plus",  name = "CCTV-5+ 体育赛事",  source = "xmltv-51zmt", ref = "CCTV5+" },
+  { id = "cctv5plus",  name = "CCTV-5+ 体育赛事",  source = "xmltv-51zmt", ref = "CCTV5+", alias = ["CCTV5+", "CCTV-5+", "CCTV5PLUS"] },
   { id = "cctv6",      name = "CCTV-6 电影",       source = "xmltv-51zmt", ref = "CCTV6" },
   { id = "cctv7",      name = "CCTV-7 国防军事",   source = "xmltv-51zmt", ref = "CCTV7" },
   { id = "cctv8",      name = "CCTV-8 电视剧",     source = "xmltv-51zmt", ref = "CCTV8" },
@@ -39,7 +39,7 @@ channels = [
   { id = "cctv15",     name = "CCTV-15 音乐",      source = "xmltv-51zmt", ref = "CCTV15" },
   { id = "cctv16",     name = "CCTV-16 奥林匹克",  source = "xmltv-51zmt", ref = "CCTV16" },
   { id = "cctv17",     name = "CCTV-17 农业农村",  source = "xmltv-51zmt", ref = "CCTV17" },
-  { id = "cctv4k",     name = "CCTV-4K 超高清",    source = "xmltv-51zmt", ref = "CCTV4K" },
+  { id = "cctv4k",     name = "CCTV-4K 超高清",    source = "xmltv-51zmt", ref = "CCTV4K", alias = ["CCTV-4K", "CCTV4K超高清"] },
 ]
 
 # ---------------------------------------------------------------------
@@ -58,7 +58,7 @@ channels = [
   { id = "sat-guangdong", name = "广东卫视",   source = "xmltv-51zmt", ref = "广东卫视" },
   { id = "sat-shenzhen",  name = "深圳卫视",   source = "xmltv-51zmt", ref = "深圳卫视" },
   { id = "sat-liaoning",  name = "辽宁卫视",   source = "xmltv-51zmt", ref = "辽宁卫视" },
-  { id = "sat-hainan",    name = "海南卫视",   source = "xmltv-51zmt", ref = "旅游卫视" },
+  { id = "sat-hainan",    name = "海南卫视",   source = "xmltv-51zmt", ref = "旅游卫视", alias = ["旅游卫视"] },
   { id = "sat-shandong",  name = "山东卫视",   source = "xmltv-51zmt", ref = "山东卫视" },
   { id = "sat-tianjin",   name = "天津卫视",   source = "xmltv-51zmt", ref = "天津卫视" },
   { id = "sat-chongqing", name = "重庆卫视",   source = "xmltv-51zmt", ref = "重庆卫视" },
@@ -106,8 +106,8 @@ channels = [
   { id = "js-city",    name = "江苏城市",       source = "tvmao", ref = "JSTV-JSTV3" },
   { id = "js-variety", name = "江苏综艺",       source = "tvmao", ref = "JSTV-JSTV2" },
   { id = "js-movie",   name = "江苏影视",       source = "tvmao", ref = "JSTV-JSTV4" },
-  { id = "js-sports",  name = "江苏休闲体育",   source = "tvmao", ref = "JSTV-JSTV6" },
-  { id = "js-cartoon", name = "江苏优漫卡通",   source = "tvmao", ref = "JSTV-JSTV7" },
+  { id = "js-sports",  name = "江苏休闲体育",   source = "tvmao", ref = "JSTV-JSTV6", alias = ["江苏体育休闲", "江苏休闲体育频道", "江苏体育休闲频道"] },
+  { id = "js-cartoon", name = "江苏优漫卡通",   source = "tvmao", ref = "JSTV-JSTV7", alias = ["优漫卡通", "江苏优漫卡通频道"] },
   { id = "js-news",    name = "江苏新闻",       source = "tvmao", ref = "JSTV-JSTV8" },
   { id = "js-edu",     name = "江苏教育",       source = "tvmao", ref = "JSTV-JSTV9" },
   { id = "js-intl",    name = "江苏国际",       source = "tvmao", ref = "JSTV-JSTV10" },

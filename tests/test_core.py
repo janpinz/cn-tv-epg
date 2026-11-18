@@ -153,5 +153,69 @@ class TestConfig(unittest.TestCase):
             settings.source(channel.source)  # 不存在会抛 ConfigError
 
 
+class TestMatching(unittest.TestCase):
+    """m3u 播放列表与节目单 id 的对齐。"""
+
+    SAMPLE = """#EXTM3U x-tvg-url="http://old.example/list.xml"
+#EXTINF:-1 tvg-id="CCTV1" tvg-name="CCTV1" group-title="央视频道",CCTV-1HD 综合
+http://example/1
+#EXTINF:-1 tvg-id="CCTV5+" tvg-name="CCTV5+" group-title="央视频道",CCTV-5+HD 体育赛事
+http://example/2
+#EXTINF:-1 tvg-id="北京卫视" tvg-name="北京卫视" group-title="卫视频道",北京卫视4K
+http://example/3
+#EXTINF:-1 tvg-id="江苏体育休闲" tvg-name="江苏体育休闲" group-title="江苏频道",江苏体育休闲
+http://example/4
+#EXTINF:-1 tvg-id="中学生" tvg-name="中学生" group-title="其它频道",中学生
+http://example/5
+"""
+
+    def setUp(self):
+        from epg.matching import Matcher
+
+        self.settings = load_settings(ROOT)
+        self.matcher = Matcher(self.settings.channels)
+
+    def test_normalize_name(self):
+        from epg.matching import normalize_name
+
+        self.assertEqual(normalize_name("CCTV-1HD 综合"), "CCTV1综合")
+        self.assertEqual(normalize_name("湖南卫视4K"), "湖南卫视")
+        self.assertEqual(normalize_name("cctv5+"), "CCTV5+")
+
+    def test_parse_m3u(self):
+        from epg.matching import parse_m3u
+
+        entries = parse_m3u(self.SAMPLE)
+        self.assertEqual(len(entries), 5)
+        self.assertEqual(entries[0].id, "CCTV1")
+        self.assertEqual(entries[0].url, "http://example/1")
+
+    def test_match_strategies(self):
+        from epg.matching import parse_m3u
+
+        entries = parse_m3u(self.SAMPLE)
+        matched = [self.matcher.match(e) for e in entries]
+        self.assertEqual(matched[0][0].id, "cctv1")       # id 忽略大小写
+        self.assertEqual(matched[1][0].id, "cctv5plus")   # 别名
+        self.assertEqual(matched[2][0].id, "sat-beijing")  # 名称精确
+        self.assertEqual(matched[3][0].id, "js-sports")   # 别名（语序不同）
+        self.assertIsNone(matched[4][0])                  # 节目单里没有
+
+    def test_rewrite(self):
+        from epg.matching import rewrite_m3u
+
+        patched, report = rewrite_m3u(self.SAMPLE, self.matcher, "https://epg.example/epg.xml")
+        self.assertIn('x-tvg-url="https://epg.example/epg.xml"', patched)
+        self.assertIn('tvg-id="cctv1"', patched)
+        self.assertIn('tvg-id="sat-beijing"', patched)
+        self.assertNotIn('tvg-id="CCTV1"', patched)
+        # 未匹配的条目原样保留，流地址不动
+        self.assertIn('tvg-id="中学生"', patched)
+        self.assertIn("http://example/5", patched)
+        self.assertEqual(report.total, 5)
+        self.assertEqual(report.matched, 4)
+        self.assertEqual(len(report.unmatched), 1)
+
+
 if __name__ == "__main__":
     unittest.main()

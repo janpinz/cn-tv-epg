@@ -117,6 +117,9 @@ def load_settings(root: Path | str = ".", config_dir: Path | str = DEFAULT_CONFI
             if item["source"] not in known:
                 raise ConfigError(f"频道 {cid} 引用了未知数据源 {item['source']}")
             seen_ids.add(cid)
+            aliases = item.get("alias", [])
+            if isinstance(aliases, str):
+                aliases = [aliases]
             channels.append(
                 Channel(
                     id=cid,
@@ -125,6 +128,7 @@ def load_settings(root: Path | str = ".", config_dir: Path | str = DEFAULT_CONFI
                     source=item["source"],
                     ref=item["ref"],
                     logo=item.get("logo"),
+                    aliases=tuple(aliases),
                 )
             )
         groups.append(Group(id=gid, name=gname, channels=tuple(channels)))

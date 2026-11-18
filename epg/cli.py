@@ -26,6 +26,9 @@ from .models import Guide, Programme
 from .normalize import normalize
 from .providers import get_provider
 
+# patch-m3u 默认写进播放列表头部的节目单地址
+DEFAULT_EPG_URL = "https://raw.githubusercontent.com/janpinz/cn-tv-epg/main/dist/epg.xml"
+
 
 # --------------------------------------------------------------------------
 # 公共
@@ -222,6 +225,72 @@ def cmd_resolve(args: argparse.Namespace) -> int:
 
 
 # --------------------------------------------------------------------------
+# 命令：patch-m3u
+# --------------------------------------------------------------------------
+def cmd_patch_m3u(args: argparse.Namespace) -> int:
+    """把外部 m3u 的 tvg-id 换成本项目 EPG 的频道 id。"""
+    import json
+
+    from .http import fetch_text
+    from .matching import Matcher, rewrite_m3u
+
+    settings = _settings(args)
+    source = args.source
+    if source.startswith(("http://", "https://")):
+        print(f"读取播放列表：{source}")
+        text = fetch_text(
+            source,
+            timeout=settings.timeout,
+            retries=settings.retries,
+            user_agent=settings.user_agent,
+        )
+    else:
+        path = Path(source)
+        if not path.is_absolute():
+            path = settings.root / path
+        if not path.exists():
+            print(f"找不到播放列表：{path}", file=sys.stderr)
+            return 2
+        print(f"读取播放列表：{path}")
+        text = path.read_text(encoding="utf-8-sig", errors="replace")
+
+    matcher = Matcher(settings.channels)
+    epg_url = args.epg_url or DEFAULT_EPG_URL
+    patched, report = rewrite_m3u(text, matcher, epg_url)
+
+    out_path = Path(args.out) if args.out else None
+    if out_path is None:
+        stem = args.name or Path(source.split("?")[0]).stem or "playlist"
+        out_path = settings.out_dir / f"{Path(stem).stem}.epg.m3u"
+    if not out_path.is_absolute():
+        out_path = settings.root / out_path
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(patched, encoding="utf-8")
+
+    report_path = out_path.with_suffix(".report.json")
+    report_path.write_text(
+        json.dumps(report.to_dict(), ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+
+    print(f"\n条目 {report.total} 条，已对齐 {report.matched} 条（{report.rate:.1f}%）")
+    if report.unmatched:
+        print(f"\n未对齐 {len(report.unmatched)} 条（节目单里没有这些频道，播放器会不显示节目）：")
+        for item in report.unmatched:
+            print(f"  {item['id'] or '(无 id)':<14} {item['display']}")
+    if args.verbose:
+        print("\n对齐明细：")
+        for item in report.entries:
+            print(f"  {item['tvg_id'] or '(无 id)':<14} -> {item['epg_id']:<14} ({item['method']}) {item['display']}")
+        if report.epg_unused:
+            print(f"\n节目单里未被播放列表使用：{len(report.epg_unused)} 个")
+    print(f"\n输出：\n  {out_path}\n  {report_path}")
+    return 0
+
+
+DEFAULT_EPG_URL = "https://raw.githubusercontent.com/janpinz/cn-tv-epg/main/dist/epg.xml"
+
+
+# --------------------------------------------------------------------------
 # 命令：serve
 # --------------------------------------------------------------------------
 def cmd_serve(args: argparse.Namespace) -> int:
@@ -296,6 +365,15 @@ def build_parser() -> argparse.ArgumentParser:
     p_resolve.add_argument("--source", default="xmltv-51zmt")
     p_resolve.add_argument("--keyword", default=None)
     p_resolve.set_defaults(func=cmd_resolve)
+
+    p_patch = sub.add_parser("patch-m3u", help="把 m3u 播放列表的 tvg-id 对齐到本节目单")
+    add_common(p_patch)
+    p_patch.add_argument("source", help="m3u 地址或本地文件路径")
+    p_patch.add_argument("--out", default=None, help="输出路径（默认 dist/<文件名>.epg.m3u）")
+    p_patch.add_argument("--name", default=None, help="输出文件名（不含扩展名）")
+    p_patch.add_argument("--epg-url", default=None, help="写进播放列表头部的节目单地址")
+    p_patch.add_argument("--verbose", action="store_true", help="打印每条对齐明细")
+    p_patch.set_defaults(func=cmd_patch_m3u)
 
     p_serve = sub.add_parser("serve", help="本地预览网页")
     add_common(p_serve)

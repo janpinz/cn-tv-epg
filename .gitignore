@@ -19,3 +19,7 @@ desktop.ini
 
 # 本地预览
 *.log
+
+# patch-m3u 的产物（含你自己的内网播放地址，不要提交）
+dist/*.epg.m3u
+dist/*.report.json

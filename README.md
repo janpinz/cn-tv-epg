@@ -44,6 +44,7 @@ python -m epg serve
 | `python -m epg build --days 3` | 指定天数 |
 | `python -m epg build --group jiangsu` | 只生成某个分组（`cctv` / `satellite` / `jiangsu`） |
 | `python -m epg build --refresh` | 忽略缓存，强制重新抓取 |
+| `python -m epg patch-m3u <地址或文件>` | 把 m3u 播放列表的 `tvg-id` 对齐到本节目单 |
 | `python -m epg channels` | 查看频道注册表 |
 | `python -m epg validate` | 检查上游是否改名（防止静默失效） |
 | `python -m epg discover --province 320000` | 列出江苏全部可抓频道（新增频道时用） |
@@ -71,6 +72,26 @@ https://raw.githubusercontent.com/<用户名>/<仓库名>/main/dist/epg.xml
 ```
 
 若是私有仓库，用本地路径也行：`dist/epg.xml`。
+
+## 对接本地 m3u 播放列表（重点）
+
+播放器是按 `tvg-id` 去节目单里找频道的，而各家 m3u 的 id 写法五花八门
+（`CCTV1` / `cctv1` / `北京卫视` / `bjws`）。项目自带对齐工具：
+
+```bash
+python -m epg patch-m3u http://192.168.3.1:8189/unicompublic.m3u --verbose
+```
+
+它会：
+
+1. 按 `id → 别名 → 频道名 → 去画质词归一` 的顺序匹配；
+2. 把每条 `tvg-id` 改写成本项目使用的 id（`cctv1` / `sat-beijing` / `js-city` …）；
+3. 把播放列表头部的 `x-tvg-url` 换成你的节目单地址；
+4. 输出 `dist/<文件名>.epg.m3u` 和 `dist/<文件名>.epg.report.json`。
+
+流地址一律不动，只改 EPG 相关字段。把生成的 m3u 丢给播放器即可，节目单就能对上。
+
+不匹配的频道会列在报告里（通常是节目单没有收录的频道，播放器只是不显示节目，不影响播放）。
 
 ## 项目结构
 

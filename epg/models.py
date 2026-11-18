@@ -20,6 +20,8 @@ class Channel:
     source: str  # 数据源 id
     ref: str  # 数据源内的原始名称或编号
     logo: str | None = None
+    # 别名：用于和外部 m3u 播放列表里的 tvg-id / 频道名对齐
+    aliases: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
