@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tv SYSTEM "xmltv.dtd">
-<tv generator-info-name="cn-tv-epg 1.0.0" generator-info-url="https://github.com/janpinz/cn-tv-epg" date="20261118152923 +0800">
+<tv generator-info-name="cn-tv-epg 1.0.0" generator-info-url="https://github.com/janpinz/cn-tv-epg" date="20261118155931 +0800">
   <channel id="cctv1">
     <display-name lang="zh">CCTV-1 综合</display-name>
   </channel>
@@ -13642,11 +13642,11 @@
   <programme start="20261118121300 +0800" channel="js-city" stop="20261118122600 +0800">
     <title lang="zh">壹周播报</title>
   </programme>
-  <programme start="20261118122600 +0800" channel="js-city" stop="20261118151200 +0800">
+  <programme start="20261118122600 +0800" channel="js-city" stop="20261118133500 +0800">
     <title lang="zh">金牌调解</title>
   </programme>
-  <programme start="20261118151200 +0800" channel="js-city" stop="20261118165900 +0800">
-    <title lang="zh">新城市客厅</title>
+  <programme start="20261118133500 +0800" channel="js-city" stop="20261118165900 +0800">
+    <title lang="zh">相亲相爱</title>
   </programme>
   <programme start="20261118165900 +0800" channel="js-city" stop="20261118175000 +0800">
     <title lang="zh">约见名医</title>
@@ -13900,11 +13900,11 @@
   <programme start="20261118144000 +0800" channel="js-sports" stop="20261118150000 +0800">
     <title lang="zh">休闲物语</title>
   </programme>
-  <programme start="20261118150000 +0800" channel="js-sports" stop="20261118154000 +0800">
+  <programme start="20261118150000 +0800" channel="js-sports" stop="20261118151000 +0800">
     <title lang="zh">荔枝健身</title>
   </programme>
-  <programme start="20261118154000 +0800" channel="js-sports" stop="20261118160000 +0800">
-    <title lang="zh">休闲物语</title>
+  <programme start="20261118151000 +0800" channel="js-sports" stop="20261118160000 +0800">
+    <title lang="zh">耍大牌</title>
   </programme>
   <programme start="20261118160000 +0800" channel="js-sports" stop="20261118163000 +0800">
     <title lang="zh">挑战不可能</title>
@@ -14149,11 +14149,11 @@
   <programme start="20261118135500 +0800" channel="js-cartoon" stop="20261118140000 +0800">
     <title lang="zh">新大头儿子和小头爸爸英雄梦</title>
   </programme>
-  <programme start="20261118140000 +0800" channel="js-cartoon" stop="20261118154000 +0800">
+  <programme start="20261118140000 +0800" channel="js-cartoon" stop="20261118150000 +0800">
     <title lang="zh">故宫里的大怪兽</title>
   </programme>
-  <programme start="20261118154000 +0800" channel="js-cartoon" stop="20261118160000 +0800">
-    <title lang="zh">棉花糖和云朵妈妈暖心回响</title>
+  <programme start="20261118150000 +0800" channel="js-cartoon" stop="20261118160000 +0800">
+    <title lang="zh">开心超人联盟之星之力</title>
   </programme>
   <programme start="20261118160000 +0800" channel="js-cartoon" stop="20261118170000 +0800">
     <title lang="zh">精灵梦叶罗丽</title>
@@ -14356,14 +14356,14 @@
   <programme start="20261118140000 +0800" channel="js-news" stop="20261118143000 +0800">
     <title lang="zh">新闻空间站</title>
   </programme>
-  <programme start="20261118143000 +0800" channel="js-news" stop="20261118151000 +0800">
+  <programme start="20261118143000 +0800" channel="js-news" stop="20261118150000 +0800">
     <title lang="zh">人间真情</title>
   </programme>
-  <programme start="20261118151000 +0800" channel="js-news" stop="20261118154000 +0800">
-    <title lang="zh">看见中国</title>
+  <programme start="20261118150000 +0800" channel="js-news" stop="20261118151000 +0800">
+    <title lang="zh">百炼成钢</title>
   </programme>
-  <programme start="20261118154000 +0800" channel="js-news" stop="20261118160000 +0800">
-    <title lang="zh">评新而论</title>
+  <programme start="20261118151000 +0800" channel="js-news" stop="20261118160000 +0800">
+    <title lang="zh">看见中国</title>
   </programme>
   <programme start="20261118160000 +0800" channel="js-news" stop="20261118163000 +0800">
     <title lang="zh">新闻空间站</title>
@@ -14596,10 +14596,10 @@
   <programme start="20261118130000 +0800" channel="js-edu" stop="20261118133900 +0800">
     <title lang="zh">剧场</title>
   </programme>
-  <programme start="20261118133900 +0800" channel="js-edu" stop="20261118154300 +0800">
+  <programme start="20261118133900 +0800" channel="js-edu" stop="20261118141400 +0800">
     <title lang="zh">传承人</title>
   </programme>
-  <programme start="20261118154300 +0800" channel="js-edu" stop="20261118162700 +0800">
+  <programme start="20261118141400 +0800" channel="js-edu" stop="20261118162700 +0800">
     <title lang="zh">剧场</title>
   </programme>
   <programme start="20261118162700 +0800" channel="js-edu" stop="20261118171200 +0800">
@@ -14785,11 +14785,11 @@
   <programme start="20261118141000 +0800" channel="js-intl" stop="20261118143000 +0800">
     <title lang="zh">长江视野</title>
   </programme>
-  <programme start="20261118143000 +0800" channel="js-intl" stop="20261118151000 +0800">
+  <programme start="20261118143000 +0800" channel="js-intl" stop="20261118150000 +0800">
     <title lang="zh">赚翻天</title>
   </programme>
-  <programme start="20261118151000 +0800" channel="js-intl" stop="20261118172500 +0800">
-    <title lang="zh">剧场</title>
+  <programme start="20261118150000 +0800" channel="js-intl" stop="20261118172500 +0800">
+    <title lang="zh">快乐一家</title>
   </programme>
   <programme start="20261118172500 +0800" channel="js-intl" stop="20261118181000 +0800">
     <title lang="zh">长江视野</title>
@@ -15310,11 +15310,11 @@
   <programme start="20261118140500 +0800" channel="nj-18life" stop="20261118143000 +0800">
     <title lang="zh">剧场</title>
   </programme>
-  <programme start="20261118143000 +0800" channel="nj-18life" stop="20261118153000 +0800">
+  <programme start="20261118143000 +0800" channel="nj-18life" stop="20261118150000 +0800">
     <title lang="zh">生活好帮手</title>
   </programme>
-  <programme start="20261118153000 +0800" channel="nj-18life" stop="20261118160000 +0800">
-    <title lang="zh">家装100问</title>
+  <programme start="20261118150000 +0800" channel="nj-18life" stop="20261118160000 +0800">
+    <title lang="zh">消费向导</title>
   </programme>
   <programme start="20261118160000 +0800" channel="nj-18life" stop="20261118164000 +0800">
     <title lang="zh">剧场</title>
@@ -15862,11 +15862,11 @@
   <programme start="20261118104000 +0800" channel="sz-news" stop="20261118110000 +0800">
     <title lang="zh">健康黄丝带</title>
   </programme>
-  <programme start="20261118110000 +0800" channel="sz-news" stop="20261118154000 +0800">
+  <programme start="20261118110000 +0800" channel="sz-news" stop="20261118115000 +0800">
     <title lang="zh">新闻夜班车</title>
   </programme>
-  <programme start="20261118154000 +0800" channel="sz-news" stop="20261118161000 +0800">
-    <title lang="zh">联播苏州</title>
+  <programme start="20261118115000 +0800" channel="sz-news" stop="20261118161000 +0800">
+    <title lang="zh">电视剧</title>
   </programme>
   <programme start="20261118161000 +0800" channel="sz-news" stop="20261118163000 +0800">
     <title lang="zh">世界大观</title>
@@ -16123,11 +16123,11 @@
   <programme start="20261119193000 +0800" channel="zjg-news" stop="20261119203000 +0800">
     <title lang="zh">电视剧</title>
   </programme>
-  <programme start="20261118084000 +0800" channel="yx-news" stop="20261118154500 +0800">
+  <programme start="20261118084000 +0800" channel="yx-news" stop="20261118135000 +0800">
     <title lang="zh">电视剧</title>
   </programme>
-  <programme start="20261118154500 +0800" channel="yx-news" stop="20261118173000 +0800">
-    <title lang="zh">观点致胜</title>
+  <programme start="20261118135000 +0800" channel="yx-news" stop="20261118173000 +0800">
+    <title lang="zh">电视剧</title>
   </programme>
   <programme start="20261118173000 +0800" channel="yx-news" stop="20261118180000 +0800">
     <title lang="zh">动画片</title>
@@ -16840,10 +16840,10 @@
   <programme start="20261118124000 +0800" channel="rg-eco" stop="20261118130500 +0800">
     <title lang="zh">健康之窗</title>
   </programme>
-  <programme start="20261118130500 +0800" channel="rg-eco" stop="20261118151500 +0800">
+  <programme start="20261118130500 +0800" channel="rg-eco" stop="20261118141000 +0800">
     <title lang="zh">经济剧场</title>
   </programme>
-  <programme start="20261118151500 +0800" channel="rg-eco" stop="20261118162000 +0800">
+  <programme start="20261118141000 +0800" channel="rg-eco" stop="20261118162000 +0800">
     <title lang="zh">经济剧场</title>
   </programme>
   <programme start="20261118162000 +0800" channel="rg-eco" stop="20261118181000 +0800">
@@ -17035,14 +17035,14 @@
   <programme start="20261118131000 +0800" channel="rg-dj" stop="20261118144000 +0800">
     <title lang="zh">红色剧场</title>
   </programme>
-  <programme start="20261118144000 +0800" channel="rg-dj" stop="20261118151000 +0800">
+  <programme start="20261118144000 +0800" channel="rg-dj" stop="20261118145000 +0800">
     <title lang="zh">天下如皋人</title>
   </programme>
-  <programme start="20261118151000 +0800" channel="rg-dj" stop="20261118153000 +0800">
-    <title lang="zh">雉水讲坛</title>
+  <programme start="20261118145000 +0800" channel="rg-dj" stop="20261118151000 +0800">
+    <title lang="zh">时代先锋</title>
   </programme>
-  <programme start="20261118153000 +0800" channel="rg-dj" stop="20261118192000 +0800">
-    <title lang="zh">红色剧场</title>
+  <programme start="20261118151000 +0800" channel="rg-dj" stop="20261118192000 +0800">
+    <title lang="zh">雉水讲坛</title>
   </programme>
   <programme start="20261118192000 +0800" channel="rg-dj" stop="20261118193000 +0800">
     <title lang="zh">时代先锋</title>
@@ -17353,14 +17353,14 @@
   <programme start="20261118133400 +0800" channel="yz-hj" stop="20261118134400 +0800">
     <title lang="zh">天天瞄瞄</title>
   </programme>
-  <programme start="20261118134400 +0800" channel="yz-hj" stop="20261118151500 +0800">
+  <programme start="20261118134400 +0800" channel="yz-hj" stop="20261118144400 +0800">
     <title lang="zh">快活一刻</title>
   </programme>
-  <programme start="20261118151500 +0800" channel="yz-hj" stop="20261118153600 +0800">
-    <title lang="zh">好地方超市</title>
+  <programme start="20261118144400 +0800" channel="yz-hj" stop="20261118151500 +0800">
+    <title lang="zh">会生活</title>
   </programme>
-  <programme start="20261118153600 +0800" channel="yz-hj" stop="20261118162400 +0800">
-    <title lang="zh">喜从天降</title>
+  <programme start="20261118151500 +0800" channel="yz-hj" stop="20261118162400 +0800">
+    <title lang="zh">好地方超市</title>
   </programme>
   <programme start="20261118162400 +0800" channel="yz-hj" stop="20261118171500 +0800">
     <title lang="zh">电视书场</title>
@@ -17584,11 +17584,11 @@
   <programme start="20261118120000 +0800" channel="tz-1" stop="20261118122300 +0800">
     <title lang="zh">看泰州(重播)</title>
   </programme>
-  <programme start="20261118122300 +0800" channel="tz-1" stop="20261118153000 +0800">
+  <programme start="20261118122300 +0800" channel="tz-1" stop="20261118132200 +0800">
     <title lang="zh">万家健康</title>
   </programme>
-  <programme start="20261118153000 +0800" channel="tz-1" stop="20261118163000 +0800">
-    <title lang="zh">万家健康</title>
+  <programme start="20261118132200 +0800" channel="tz-1" stop="20261118163000 +0800">
+    <title lang="zh">电视剧</title>
   </programme>
   <programme start="20261118163000 +0800" channel="tz-1" stop="20261118175500 +0800">
     <title lang="zh">电视剧</title>
