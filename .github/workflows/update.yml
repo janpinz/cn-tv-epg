@@ -24,7 +24,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
+    outputs:
+      pages: ${{ steps.pages.outputs.enabled }}
     steps:
       - uses: actions/checkout@v4
 
@@ -56,20 +58,36 @@ jobs:
           git commit -m "chore(epg): 自动更新 $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M')"
           git push
 
+      # Pages 未启用时自动跳过发布，避免每次运行都报红。
+      # 想开网页版：仓库 Settings → Pages → Source 选 "GitHub Actions"。
+      - name: 检查 Pages 是否启用
+        id: pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if curl -sf -H "Authorization: Bearer $GH_TOKEN" \
+               -H "Accept: application/vnd.github+json" \
+               "https://api.github.com/repos/${{ github.repository }}/pages" > /dev/null; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::GitHub Pages 尚未启用，本次跳过发布。开启方法：Settings → Pages → Source 选择 GitHub Actions。"
+          fi
+
       - name: 打包网页版
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' && steps.pages.outputs.enabled == 'true'
         run: |
           mkdir -p _site/data
           cp -r web/. _site/
           cp -r dist/. _site/data/
 
       - uses: actions/upload-pages-artifact@v3
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' && steps.pages.outputs.enabled == 'true'
         with:
           path: _site
 
   deploy:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && needs.build.outputs.pages == 'true'
     needs: build
     runs-on: ubuntu-latest
     environment:
