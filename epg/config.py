@@ -9,9 +9,14 @@
 
 from __future__ import annotations
 
-import tomllib
+import sys
 from dataclasses import dataclass, field
 from pathlib import Path
+
+try:  # Python 3.11+
+    import tomllib
+except ModuleNotFoundError:  # pragma: no cover - 3.10 及以下用 backport
+    import tomli as tomllib  # type: ignore[no-redef]
 
 from .models import Channel, Group
 

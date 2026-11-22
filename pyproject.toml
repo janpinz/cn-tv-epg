@@ -11,7 +11,7 @@ requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [{ name = "janpinz" }]
 keywords = ["epg", "xmltv", "iptv", "cctv", "jiangsu"]
-dependencies = []  # 零第三方依赖：仅用标准库
+dependencies = ["tomli>=2.0; python_version < '3.11'"]  # 3.11+ 用标准库 tomllib，无需安装
 
 [project.scripts]
 epg = "epg.cli:main"

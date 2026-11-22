@@ -1,0 +1,49 @@
+# Gitee Go 流水线：每天生成节目单并发布到发行版附件
+#
+# 为什么单独写一份：
+#   - Gitee Go 的 Python 插件最高只到 3.9，项目用 tomli 作为 tomllib 的兼容实现
+#   - 这里只做「生成 + 发布」，不往仓库里提交，减少对写入权限的依赖
+#
+# 需要先在 Gitee 流水线里加两个参数（GITEE_TOKEN 设为私密）：
+#   GITEE_USER  = janpin
+#   GITEE_TOKEN = 你的 Gitee 私人令牌
+#
+# cron 格式：分 时 天 月 星期（Gitee Go 写的是 M H D m d y，星期里 1=周日）
+#   '30 6 * * ?' = 每天 06:30
+
+version: '1.0'
+name: epg-daily
+displayName: 每日节目单
+
+triggers:
+  schedule:
+    - cron: '30 6 * * ?'
+  push:
+    branches:
+      precise:
+        - master
+
+stages:
+  - stage: build
+    name: build
+    displayName: 生成并发布
+    strategy: naturally
+    trigger: auto
+    steps:
+      - step: build@python
+        name: build_python
+        displayName: 生成节目单
+        pythonVersion: 3.9
+        commands:
+          - python3 -m pip install tomli -i https://pypi.tuna.tsinghua.edu.cn/simple
+          - python3 -m epg build --days 2
+          - |
+            if [ -z "${GITEE_TOKEN}" ]; then
+              echo "缺少 GITEE_TOKEN 流水线参数，请在流水线「参数设置」里添加（设为私密）"
+              exit 1
+            fi
+          - GITEE_USER=${GITEE_USER} GITEE_TOKEN=${GITEE_TOKEN} python3 scripts/publish_gitee.py dist/epg.xml dist/epg.json
+        artifacts:
+          - name: BUILD_ARTIFACT
+            path:
+              - ./dist
