@@ -46,17 +46,51 @@ jobs:
           mkdir -p "data/archive/$DAY"
           cp dist/epg.json "data/archive/$DAY/epg.json"
 
+      - name: 清理过期历史快照
+        run: |
+          # 只保留最近 30 天，避免仓库每天 +1MB 无限膨胀
+          find data/archive -mindepth 1 -maxdepth 1 -type d | sort | head -n -30 | xargs -r rm -rf
+
       - name: 提交结果
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add dist data/archive
+          git add -A dist data/archive
           if git diff --staged --quiet; then
             echo "没有变化，跳过提交"
             exit 0
           fi
           git commit -m "chore(epg): 自动更新 $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M')"
           git push
+
+      # 把节目单发布到 Gitee 发行版附件，供国内网络直接访问。
+      # 为什么不用 Gitee 的 raw：raw 对超过约 64KB 的文件会返回 451（内容审核），
+      # 发行版附件走另一套存储，1MB 文件实测正常。
+      # 需要在仓库 Secrets 里配置 GITEE_USER 和 GITEE_TOKEN；没配就自动跳过。
+      - name: 发布数据到 Gitee 发行版
+        if: github.ref == 'refs/heads/main'
+        continue-on-error: true
+        env:
+          GITEE_USER: ${{ secrets.GITEE_USER }}
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+        run: python scripts/publish_gitee.py dist/epg.xml dist/epg.json
+
+      # 同时把整个仓库镜像过去，方便国内直接浏览源码 / clone
+      - name: 镜像代码到 Gitee
+        if: github.ref == 'refs/heads/main'
+        continue-on-error: true
+        env:
+          GITEE_USER: ${{ secrets.GITEE_USER }}
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+        run: |
+          if [ -z "$GITEE_TOKEN" ] || [ -z "$GITEE_USER" ]; then
+            echo "::notice::未配置 GITEE_USER / GITEE_TOKEN，跳过代码镜像"
+            exit 0
+          fi
+          REMOTE="https://${GITEE_USER}:${GITEE_TOKEN}@gitee.com/${GITEE_USER}/cn-tv-epg.git"
+          git remote add gitee "$REMOTE" 2>/dev/null || git remote set-url gitee "$REMOTE"
+          git push gitee HEAD:master --force
+          echo "::notice::已同步到 https://gitee.com/${GITEE_USER}/cn-tv-epg"
 
       # Pages 未启用时自动跳过发布，避免每次运行都报红。
       # 想开网页版：仓库 Settings → Pages → Source 选 "GitHub Actions"。

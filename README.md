@@ -29,8 +29,7 @@ python -m epg build
 
 # 从今天起生成 3 天
 python -m epg build --days 3
-
-
+```
 
 首次运行约 1 分钟（江苏地方台是逐频道抓取），之后有本地缓存会快很多。
 
@@ -60,6 +59,21 @@ python -m epg build --days 3
   还会顺手发布一个网页版节目单。
 
 不需要改任何代码，推上去就会自己更新。
+
+## 国内访问（Gitee）
+
+GitHub 在国内访问不稳，节目单每天会自动同步一份到 Gitee：
+
+| 用途 | 地址 |
+| --- | --- |
+| 节目单 XMLTV（播放器填这个） | `https://gitee.com/janpin/cn-tv-epg/releases/download/data/epg.xml` |
+| 节目单 JSON | `https://gitee.com/janpin/cn-tv-epg/releases/download/data/epg.json` |
+| 源码仓库 | `https://gitee.com/janpin/cn-tv-epg` |
+
+实测 1~2 秒可下完 1MB，播放器优先用这两个地址。
+
+> 注意：这两个是 **发行版附件** 地址，不是 Gitee 的 raw 直链。
+> Gitee 会对超过约 64KB 的 raw 文件做内容审核并返回 451，所以节目单没法走 raw。
 
 
 ## 项目结构
