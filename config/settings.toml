@@ -48,3 +48,11 @@ dir = "dist"
 archive_dir = "data/archive"
 # 是否生成历史快照
 archive = true
+
+# ---------------------------------------------------------------------
+# 关于发布
+#   GitHub Actions 每天生成后会把 dist/epg.xml、dist/epg.json 发布到
+#   Gitee 的发行版附件（scripts/publish_gitee.py），供国内网络直接下载。
+#   不使用 Gitee raw：raw 对超过约 64KB 的文件会返回 451（内容审核）。
+#   需要在仓库 Secrets 里配置 GITEE_USER / GITEE_TOKEN，否则自动跳过。
+# ---------------------------------------------------------------------
