@@ -73,7 +73,25 @@ jobs:
         env:
           GITEE_USER: ${{ secrets.GITEE_USER }}
           GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
-        run: python scripts/publish_gitee.py dist/epg.xml dist/epg.json
+        run: |
+          set +e
+          python scripts/publish_gitee.py dist/epg.xml dist/epg.json > /tmp/gitee.log 2>&1
+          CODE=$?
+          {
+            echo "exit_code=$CODE"
+            echo "time=$(date -u +%FT%TZ)"
+            echo "user_present=$([ -n "$GITEE_USER" ] && echo yes || echo no)"
+            echo "token_present=$([ -n "$GITEE_TOKEN" ] && echo yes || echo no)"
+            echo "--- output ---"
+            tail -n 25 /tmp/gitee.log
+          } > data/gitee-status.txt
+          git add data/gitee-status.txt
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -q -m "chore: 记录 Gitee 发布状态" || true
+          git push -q || true
+          cat data/gitee-status.txt
+          exit $CODE
 
       # 同时把整个仓库镜像过去，方便国内直接浏览源码 / clone
       - name: 镜像代码到 Gitee
