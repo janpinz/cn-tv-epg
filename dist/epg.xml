@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tv SYSTEM "xmltv.dtd">
-<tv generator-info-name="cn-tv-epg 1.0.0" generator-info-url="https://github.com/janpinz/cn-tv-epg" date="20261122162031 +0800">
+<tv generator-info-name="cn-tv-epg 1.0.0" generator-info-url="https://github.com/janpinz/cn-tv-epg" date="20261122165222 +0800">
   <channel id="cctv1">
     <display-name lang="zh">CCTV1</display-name>
     <display-name lang="zh">CCTV-1</display-name>
@@ -14638,11 +14638,11 @@
   <programme start="20261122145000 +0800" channel="nj-doc" stop="20261122152000 +0800">
     <title lang="zh">消费向导</title>
   </programme>
-  <programme start="20261122152000 +0800" channel="nj-doc" stop="20261122162000 +0800">
+  <programme start="20261122152000 +0800" channel="nj-doc" stop="20261122155000 +0800">
     <title lang="zh">家装100问</title>
   </programme>
-  <programme start="20261122162000 +0800" channel="nj-doc" stop="20261122163500 +0800">
-    <title lang="zh">第一房产</title>
+  <programme start="20261122155000 +0800" channel="nj-doc" stop="20261122163500 +0800">
+    <title lang="zh">休闲物语</title>
   </programme>
   <programme start="20261122163500 +0800" channel="nj-doc" stop="20261122171000 +0800">
     <title lang="zh">第一家装</title>
@@ -14977,11 +14977,11 @@
   <programme start="20261122144000 +0800" channel="sz-news" stop="20261122150000 +0800">
     <title lang="zh">科普新说</title>
   </programme>
-  <programme start="20261122150000 +0800" channel="sz-news" stop="20261122161000 +0800">
+  <programme start="20261122150000 +0800" channel="sz-news" stop="20261122154000 +0800">
     <title lang="zh">苏城议事厅</title>
   </programme>
-  <programme start="20261122161000 +0800" channel="sz-news" stop="20261122163000 +0800">
-    <title lang="zh">世界大观</title>
+  <programme start="20261122154000 +0800" channel="sz-news" stop="20261122163000 +0800">
+    <title lang="zh">联播苏州</title>
   </programme>
   <programme start="20261122163000 +0800" channel="sz-news" stop="20261122171500 +0800">
     <title lang="zh">苏昆传统折子戏</title>
@@ -15982,10 +15982,10 @@
   <programme start="20261122130500 +0800" channel="rg-eco" stop="20261122141000 +0800">
     <title lang="zh">经济剧场</title>
   </programme>
-  <programme start="20261122141000 +0800" channel="rg-eco" stop="20261122162000 +0800">
+  <programme start="20261122141000 +0800" channel="rg-eco" stop="20261122151500 +0800">
     <title lang="zh">经济剧场</title>
   </programme>
-  <programme start="20261122162000 +0800" channel="rg-eco" stop="20261122181000 +0800">
+  <programme start="20261122151500 +0800" channel="rg-eco" stop="20261122181000 +0800">
     <title lang="zh">经济剧场</title>
   </programme>
   <programme start="20261122181000 +0800" channel="rg-eco" stop="20261122183000 +0800">
@@ -18436,210 +18436,6 @@
   <programme start="20261123231000 +0800" channel="middle-school" stop="20261124000000 +0800">
     <title lang="zh">家国:包拯</title>
   </programme>
-  <programme start="20261122000000 +0800" channel="df-caijing" stop="20261122005300 +0800">
-    <title lang="zh">中国奇妙之旅(1)</title>
-  </programme>
-  <programme start="20261122005300 +0800" channel="df-caijing" stop="20261122010000 +0800">
-    <title lang="zh">外籍人士看浦东</title>
-  </programme>
-  <programme start="20261122010000 +0800" channel="df-caijing" stop="20261122013000 +0800">
-    <title lang="zh">向新出发(1)</title>
-  </programme>
-  <programme start="20261122013000 +0800" channel="df-caijing" stop="20261122014500 +0800">
-    <title lang="zh">文化访谈录(320)</title>
-  </programme>
-  <programme start="20261122014500 +0800" channel="df-caijing" stop="20261122015000 +0800">
-    <title lang="zh">外籍人士看浦东</title>
-  </programme>
-  <programme start="20261122015000 +0800" channel="df-caijing" stop="20261122015600 +0800">
-    <title lang="zh">外籍人士看浦东</title>
-  </programme>
-  <programme start="20261122015600 +0800" channel="df-caijing" stop="20261122040000 +0800">
-    <title lang="zh">祝您晚安</title>
-  </programme>
-  <programme start="20261122040000 +0800" channel="df-caijing" stop="20261122051600 +0800">
-    <title lang="zh">祝您晚安</title>
-  </programme>
-  <programme start="20261122051600 +0800" channel="df-caijing" stop="20261122060100 +0800">
-    <title lang="zh">祝您晚安</title>
-  </programme>
-  <programme start="20261122060100 +0800" channel="df-caijing" stop="20261122062600 +0800">
-    <title lang="zh">创赢未来:数联浦东,商通未来(上)</title>
-  </programme>
-  <programme start="20261122062600 +0800" channel="df-caijing" stop="20261122065100 +0800">
-    <title lang="zh">创赢未来:数联浦东,商通未来(下)</title>
-  </programme>
-  <programme start="20261122065100 +0800" channel="df-caijing" stop="20261122070000 +0800">
-    <title lang="zh">直击引领区</title>
-  </programme>
-  <programme start="20261122070000 +0800" channel="df-caijing" stop="20261122072500 +0800">
-    <title lang="zh">创时代(204):解码生命</title>
-  </programme>
-  <programme start="20261122072500 +0800" channel="df-caijing" stop="20261122075300 +0800">
-    <title lang="zh">创时代(205):解码生命</title>
-  </programme>
-  <programme start="20261122075300 +0800" channel="df-caijing" stop="20261122080000 +0800">
-    <title lang="zh">外籍人士看浦东</title>
-  </programme>
-  <programme start="20261122080000 +0800" channel="df-caijing" stop="20261122082500 +0800">
-    <title lang="zh">对话引领区(46)</title>
-  </programme>
-  <programme start="20261122082500 +0800" channel="df-caijing" stop="20261122083000 +0800">
-    <title lang="zh">直击引领区</title>
-  </programme>
-  <programme start="20261122083000 +0800" channel="df-caijing" stop="20261122090000 +0800">
-    <title lang="zh">几何书房(1495):张宁</title>
-  </programme>
-  <programme start="20261122090000 +0800" channel="df-caijing" stop="20261122091500 +0800">
-    <title lang="zh">文化访谈录(315)</title>
-  </programme>
-  <programme start="20261122091500 +0800" channel="df-caijing" stop="20261122094600 +0800">
-    <title lang="zh">文化访谈录(281)</title>
-  </programme>
-  <programme start="20261122094600 +0800" channel="df-caijing" stop="20261122100000 +0800">
-    <title lang="zh">直击引领区(82):文创篇</title>
-  </programme>
-  <programme start="20261122100000 +0800" channel="df-caijing" stop="20261122103000 +0800">
-    <title lang="zh">浦东新脸谱(534):楚建军</title>
-  </programme>
-  <programme start="20261122103000 +0800" channel="df-caijing" stop="20261122110600 +0800">
-    <title lang="zh">中国经济论坛(2)</title>
-  </programme>
-  <programme start="20261122110600 +0800" channel="df-caijing" stop="20261122111500 +0800">
-    <title lang="zh">外籍人士看浦东</title>
-  </programme>
-  <programme start="20261122111500 +0800" channel="df-caijing" stop="20261122113000 +0800">
-    <title lang="zh">文化访谈录(320)</title>
-  </programme>
-  <programme start="20261122113000 +0800" channel="df-caijing" stop="20261122120000 +0800">
-    <title lang="zh">创时代(204):解码生命</title>
-  </programme>
-  <programme start="20261122120000 +0800" channel="df-caijing" stop="20261122122500 +0800">
-    <title lang="zh">创赢未来(363)</title>
-  </programme>
-  <programme start="20261122122500 +0800" channel="df-caijing" stop="20261122125000 +0800">
-    <title lang="zh">创赢未来(364)</title>
-  </programme>
-  <programme start="20261122125000 +0800" channel="df-caijing" stop="20261122125500 +0800">
-    <title lang="zh">外籍人士看浦东</title>
-  </programme>
-  <programme start="20261122125500 +0800" channel="df-caijing" stop="20261122130000 +0800">
-    <title lang="zh">直击引领区:田埂上的先锋号</title>
-  </programme>
-  <programme start="20261122130000 +0800" channel="df-caijing" stop="20261122135000 +0800">
-    <title lang="zh">野性四季(3)</title>
-  </programme>
-  <programme start="20261122135000 +0800" channel="df-caijing" stop="20261122144000 +0800">
-    <title lang="zh">野性四季(4)</title>
-  </programme>
-  <programme start="20261122144000 +0800" channel="df-caijing" stop="20261122144500 +0800">
-    <title lang="zh">外籍人士看浦东</title>
-  </programme>
-  <programme start="20261122144500 +0800" channel="df-caijing" stop="20261122150000 +0800">
-    <title lang="zh">直击引领区(58):演艺篇</title>
-  </programme>
-  <programme start="20261122150000 +0800" channel="df-caijing" stop="20261122150600 +0800">
-    <title lang="zh">直击引领区:微度假-世博文化公园</title>
-  </programme>
-  <programme start="20261122150600 +0800" channel="df-caijing" stop="20261122151300 +0800">
-    <title lang="zh">直击引领区:微度假-耀雪冰雪世界</title>
-  </programme>
-  <programme start="20261122151300 +0800" channel="df-caijing" stop="20261122151800 +0800">
-    <title lang="zh">直击引领区:微度假-EKA·天物</title>
-  </programme>
-  <programme start="20261122151800 +0800" channel="df-caijing" stop="20261122152400 +0800">
-    <title lang="zh">直击引领区(91)</title>
-  </programme>
-  <programme start="20261122152400 +0800" channel="df-caijing" stop="20261122153000 +0800">
-    <title lang="zh">直击引领区(92):微度假</title>
-  </programme>
-  <programme start="20261122153000 +0800" channel="df-caijing" stop="20261122160000 +0800">
-    <title lang="zh">对话引领区(14)</title>
-  </programme>
-  <programme start="20261122160000 +0800" channel="df-caijing" stop="20261122164100 +0800">
-    <title lang="zh">中国经济论坛(1)</title>
-  </programme>
-  <programme start="20261122164100 +0800" channel="df-caijing" stop="20261122164800 +0800">
-    <title lang="zh">外籍人士看浦东</title>
-  </programme>
-  <programme start="20261122164800 +0800" channel="df-caijing" stop="20261122165400 +0800">
-    <title lang="zh">外籍人士看浦东</title>
-  </programme>
-  <programme start="20261122165400 +0800" channel="df-caijing" stop="20261122170000 +0800">
-    <title lang="zh">浦东打造全球电竞之都系列专题片</title>
-  </programme>
-  <programme start="20261122170000 +0800" channel="df-caijing" stop="20261122171500 +0800">
-    <title lang="zh">科创新视野</title>
-  </programme>
-  <programme start="20261122171500 +0800" channel="df-caijing" stop="20261122172000 +0800">
-    <title lang="zh">外籍人士看浦东</title>
-  </programme>
-  <programme start="20261122172000 +0800" channel="df-caijing" stop="20261122173000 +0800">
-    <title lang="zh">外籍人士看浦东</title>
-  </programme>
-  <programme start="20261122173000 +0800" channel="df-caijing" stop="20261122180000 +0800">
-    <title lang="zh">EYE浦东(36)</title>
-  </programme>
-  <programme start="20261122180000 +0800" channel="df-caijing" stop="20261122182500 +0800">
-    <title lang="zh">对话引领区(46)</title>
-  </programme>
-  <programme start="20261122182500 +0800" channel="df-caijing" stop="20261122185000 +0800">
-    <title lang="zh">对话引领区(14)</title>
-  </programme>
-  <programme start="20261122185000 +0800" channel="df-caijing" stop="20261122190000 +0800">
-    <title lang="zh">外籍人士看浦东</title>
-  </programme>
-  <programme start="20261122190000 +0800" channel="df-caijing" stop="20261122193400 +0800">
-    <title lang="zh">文化访谈录(282)</title>
-  </programme>
-  <programme start="20261122193400 +0800" channel="df-caijing" stop="20261122194700 +0800">
-    <title lang="zh">直击引领区(78):文创篇</title>
-  </programme>
-  <programme start="20261122194700 +0800" channel="df-caijing" stop="20261122200000 +0800">
-    <title lang="zh">直击引领区(81):文创篇</title>
-  </programme>
-  <programme start="20261122200000 +0800" channel="df-caijing" stop="20261122201500 +0800">
-    <title lang="zh">引领区文化会客厅(19)</title>
-  </programme>
-  <programme start="20261122201500 +0800" channel="df-caijing" stop="20261122203000 +0800">
-    <title lang="zh">引领区文化会客厅(20)</title>
-  </programme>
-  <programme start="20261122203000 +0800" channel="df-caijing" stop="20261122210000 +0800">
-    <title lang="zh">创时代</title>
-  </programme>
-  <programme start="20261122210000 +0800" channel="df-caijing" stop="20261122213000 +0800">
-    <title lang="zh">浦东新脸谱(535):刘皓</title>
-  </programme>
-  <programme start="20261122213000 +0800" channel="df-caijing" stop="20261122220300 +0800">
-    <title lang="zh">陆家嘴金融沙龙(39)</title>
-  </programme>
-  <programme start="20261122220300 +0800" channel="df-caijing" stop="20261122220800 +0800">
-    <title lang="zh">外籍人士看浦东</title>
-  </programme>
-  <programme start="20261122220800 +0800" channel="df-caijing" stop="20261122221500 +0800">
-    <title lang="zh">外籍人士看浦东</title>
-  </programme>
-  <programme start="20261122221500 +0800" channel="df-caijing" stop="20261122222000 +0800">
-    <title lang="zh">外籍人士看浦东</title>
-  </programme>
-  <programme start="20261122222000 +0800" channel="df-caijing" stop="20261122223000 +0800">
-    <title lang="zh">外籍人士看浦东</title>
-  </programme>
-  <programme start="20261122223000 +0800" channel="df-caijing" stop="20261122230000 +0800">
-    <title lang="zh">东方艺术长廊</title>
-  </programme>
-  <programme start="20261122230000 +0800" channel="df-caijing" stop="20261122232500 +0800">
-    <title lang="zh">创时代(205):解码生命</title>
-  </programme>
-  <programme start="20261122232500 +0800" channel="df-caijing" stop="20261122233000 +0800">
-    <title lang="zh">浦东打造全球电竞之都系列专题片</title>
-  </programme>
-  <programme start="20261122233000 +0800" channel="df-caijing" stop="20261122235500 +0800">
-    <title lang="zh">几何书房(1495):张宁</title>
-  </programme>
-  <programme start="20261122235500 +0800" channel="df-caijing" stop="20261123000000 +0800">
-    <title lang="zh">直击引领区(73):文创篇</title>
-  </programme>
   <programme start="20261123000000 +0800" channel="df-caijing" stop="20261123005300 +0800">
     <title lang="zh">中国奇妙之旅(2)</title>
   </programme>
@@ -19020,203 +18816,5 @@
   </programme>
   <programme start="20261122232800 +0800" channel="life-fashion" stop="20261123000000 +0800">
     <title lang="zh">原味记忆:云海梯田的美食馈赠</title>
-  </programme>
-  <programme start="20261123000000 +0800" channel="life-fashion" stop="20261123002900 +0800">
-    <title lang="zh">原味记忆:宁波小吃(下)</title>
-  </programme>
-  <programme start="20261123002900 +0800" channel="life-fashion" stop="20261123004900 +0800">
-    <title lang="zh">大医来了</title>
-  </programme>
-  <programme start="20261123004900 +0800" channel="life-fashion" stop="20261123010100 +0800">
-    <title lang="zh">日食记:香辣明虾肉蟹煲</title>
-  </programme>
-  <programme start="20261123010100 +0800" channel="life-fashion" stop="20261123014100 +0800">
-    <title lang="zh">行走的博物馆(3):玉枕通灵胜玳珊</title>
-  </programme>
-  <programme start="20261123014100 +0800" channel="life-fashion" stop="20261123015600 +0800">
-    <title lang="zh">校媒联盟周刊</title>
-  </programme>
-  <programme start="20261123015600 +0800" channel="life-fashion" stop="20261123022700 +0800">
-    <title lang="zh">原味记忆:云海梯田的美食馈赠</title>
-  </programme>
-  <programme start="20261123022700 +0800" channel="life-fashion" stop="20261123024700 +0800">
-    <title lang="zh">大医来了</title>
-  </programme>
-  <programme start="20261123024700 +0800" channel="life-fashion" stop="20261123025200 +0800">
-    <title lang="zh">日食记:猪脚米线</title>
-  </programme>
-  <programme start="20261123025200 +0800" channel="life-fashion" stop="20261123025700 +0800">
-    <title lang="zh">乐游上海:外滩源美丰大楼</title>
-  </programme>
-  <programme start="20261123025700 +0800" channel="life-fashion" stop="20261123033900 +0800">
-    <title lang="zh">行走的博物馆(4):心乐箪瓢同鼎食</title>
-  </programme>
-  <programme start="20261123033900 +0800" channel="life-fashion" stop="20261123040000 +0800">
-    <title lang="zh">原味记忆:宁波小吃(下)</title>
-  </programme>
-  <programme start="20261123040000 +0800" channel="life-fashion" stop="20261123040900 +0800">
-    <title lang="zh">原味记忆:宁波小吃(下)</title>
-  </programme>
-  <programme start="20261123040900 +0800" channel="life-fashion" stop="20261123044100 +0800">
-    <title lang="zh">大医来了</title>
-  </programme>
-  <programme start="20261123044100 +0800" channel="life-fashion" stop="20261123052000 +0800">
-    <title lang="zh">行走的博物馆(3):玉枕通灵胜玳珊</title>
-  </programme>
-  <programme start="20261123052000 +0800" channel="life-fashion" stop="20261123053500 +0800">
-    <title lang="zh">校媒联盟周刊</title>
-  </programme>
-  <programme start="20261123053500 +0800" channel="life-fashion" stop="20261123060600 +0800">
-    <title lang="zh">原味记忆:云海梯田的美食馈赠</title>
-  </programme>
-  <programme start="20261123060600 +0800" channel="life-fashion" stop="20261123062600 +0800">
-    <title lang="zh">大医来了</title>
-  </programme>
-  <programme start="20261123062600 +0800" channel="life-fashion" stop="20261123063200 +0800">
-    <title lang="zh">日食记:猪脚米线</title>
-  </programme>
-  <programme start="20261123063200 +0800" channel="life-fashion" stop="20261123063700 +0800">
-    <title lang="zh">乐游上海:外滩源美丰大楼</title>
-  </programme>
-  <programme start="20261123063700 +0800" channel="life-fashion" stop="20261123071900 +0800">
-    <title lang="zh">行走的博物馆(4):心乐箪瓢同鼎食</title>
-  </programme>
-  <programme start="20261123071900 +0800" channel="life-fashion" stop="20261123074800 +0800">
-    <title lang="zh">原味记忆:宁波小吃(下)</title>
-  </programme>
-  <programme start="20261123074800 +0800" channel="life-fashion" stop="20261123080000 +0800">
-    <title lang="zh">大医来了</title>
-  </programme>
-  <programme start="20261123080000 +0800" channel="life-fashion" stop="20261123080800 +0800">
-    <title lang="zh">大医来了</title>
-  </programme>
-  <programme start="20261123080800 +0800" channel="life-fashion" stop="20261123081600 +0800">
-    <title lang="zh">日食记:香辣明虾肉蟹煲</title>
-  </programme>
-  <programme start="20261123081600 +0800" channel="life-fashion" stop="20261123082100 +0800">
-    <title lang="zh">乐游上海</title>
-  </programme>
-  <programme start="20261123082100 +0800" channel="life-fashion" stop="20261123090000 +0800">
-    <title lang="zh">行走的博物馆(3):玉枕通灵胜玳珊</title>
-  </programme>
-  <programme start="20261123090000 +0800" channel="life-fashion" stop="20261123091500 +0800">
-    <title lang="zh">校媒联盟周刊</title>
-  </programme>
-  <programme start="20261123091500 +0800" channel="life-fashion" stop="20261123094600 +0800">
-    <title lang="zh">原味记忆:云海梯田的美食馈赠</title>
-  </programme>
-  <programme start="20261123094600 +0800" channel="life-fashion" stop="20261123100600 +0800">
-    <title lang="zh">大医来了</title>
-  </programme>
-  <programme start="20261123100600 +0800" channel="life-fashion" stop="20261123101100 +0800">
-    <title lang="zh">日食记:猪脚米线</title>
-  </programme>
-  <programme start="20261123101100 +0800" channel="life-fashion" stop="20261123101600 +0800">
-    <title lang="zh">乐游上海:外滩源美丰大楼</title>
-  </programme>
-  <programme start="20261123101600 +0800" channel="life-fashion" stop="20261123105800 +0800">
-    <title lang="zh">行走的博物馆(4):心乐箪瓢同鼎食</title>
-  </programme>
-  <programme start="20261123105800 +0800" channel="life-fashion" stop="20261123112800 +0800">
-    <title lang="zh">原味记忆:宁波小吃(下)</title>
-  </programme>
-  <programme start="20261123112800 +0800" channel="life-fashion" stop="20261123120000 +0800">
-    <title lang="zh">大医来了</title>
-  </programme>
-  <programme start="20261123120000 +0800" channel="life-fashion" stop="20261123124000 +0800">
-    <title lang="zh">行走的博物馆(3):玉枕通灵胜玳珊</title>
-  </programme>
-  <programme start="20261123124000 +0800" channel="life-fashion" stop="20261123125500 +0800">
-    <title lang="zh">校媒联盟周刊</title>
-  </programme>
-  <programme start="20261123125500 +0800" channel="life-fashion" stop="20261123132500 +0800">
-    <title lang="zh">原味记忆:云海梯田的美食馈赠</title>
-  </programme>
-  <programme start="20261123132500 +0800" channel="life-fashion" stop="20261123134500 +0800">
-    <title lang="zh">大医来了</title>
-  </programme>
-  <programme start="20261123134500 +0800" channel="life-fashion" stop="20261123135100 +0800">
-    <title lang="zh">日食记:猪脚米线</title>
-  </programme>
-  <programme start="20261123135100 +0800" channel="life-fashion" stop="20261123135600 +0800">
-    <title lang="zh">乐游上海:外滩源美丰大楼</title>
-  </programme>
-  <programme start="20261123135600 +0800" channel="life-fashion" stop="20261123143800 +0800">
-    <title lang="zh">行走的博物馆(4):心乐箪瓢同鼎食</title>
-  </programme>
-  <programme start="20261123143800 +0800" channel="life-fashion" stop="20261123150700 +0800">
-    <title lang="zh">原味记忆:宁波小吃(下)</title>
-  </programme>
-  <programme start="20261123150700 +0800" channel="life-fashion" stop="20261123152700 +0800">
-    <title lang="zh">大医来了</title>
-  </programme>
-  <programme start="20261123152700 +0800" channel="life-fashion" stop="20261123153500 +0800">
-    <title lang="zh">日食记:香辣明虾肉蟹煲</title>
-  </programme>
-  <programme start="20261123153500 +0800" channel="life-fashion" stop="20261123154000 +0800">
-    <title lang="zh">乐游上海</title>
-  </programme>
-  <programme start="20261123154000 +0800" channel="life-fashion" stop="20261123161900 +0800">
-    <title lang="zh">行走的博物馆(3):玉枕通灵胜玳珊</title>
-  </programme>
-  <programme start="20261123161900 +0800" channel="life-fashion" stop="20261123163400 +0800">
-    <title lang="zh">校媒联盟周刊</title>
-  </programme>
-  <programme start="20261123163400 +0800" channel="life-fashion" stop="20261123170500 +0800">
-    <title lang="zh">原味记忆:云海梯田的美食馈赠</title>
-  </programme>
-  <programme start="20261123170500 +0800" channel="life-fashion" stop="20261123172500 +0800">
-    <title lang="zh">大医来了</title>
-  </programme>
-  <programme start="20261123172500 +0800" channel="life-fashion" stop="20261123173000 +0800">
-    <title lang="zh">日食记:猪脚米线</title>
-  </programme>
-  <programme start="20261123173000 +0800" channel="life-fashion" stop="20261123173600 +0800">
-    <title lang="zh">乐游上海:外滩源美丰大楼</title>
-  </programme>
-  <programme start="20261123173600 +0800" channel="life-fashion" stop="20261123181700 +0800">
-    <title lang="zh">行走的博物馆(4):心乐箪瓢同鼎食</title>
-  </programme>
-  <programme start="20261123181700 +0800" channel="life-fashion" stop="20261123184500 +0800">
-    <title lang="zh">原味记忆:宁波小吃(下)</title>
-  </programme>
-  <programme start="20261123184500 +0800" channel="life-fashion" stop="20261123192400 +0800">
-    <title lang="zh">行走的博物馆(3):玉枕通灵胜玳珊</title>
-  </programme>
-  <programme start="20261123192400 +0800" channel="life-fashion" stop="20261123193000 +0800">
-    <title lang="zh">日食记:香辣明虾肉蟹煲</title>
-  </programme>
-  <programme start="20261123193000 +0800" channel="life-fashion" stop="20261123200100 +0800">
-    <title lang="zh">原味记忆:滇南古城的街巷佳肴</title>
-  </programme>
-  <programme start="20261123200100 +0800" channel="life-fashion" stop="20261123202100 +0800">
-    <title lang="zh">大医来了:中枢瘫下肢功能的重建</title>
-  </programme>
-  <programme start="20261123202100 +0800" channel="life-fashion" stop="20261123203000 +0800">
-    <title lang="zh">日食记:锅包肉和地三鲜</title>
-  </programme>
-  <programme start="20261123203000 +0800" channel="life-fashion" stop="20261123205900 +0800">
-    <title lang="zh">健身私享课Ⅰ(2):人鱼线雕刻联盟</title>
-  </programme>
-  <programme start="20261123205900 +0800" channel="life-fashion" stop="20261123213900 +0800">
-    <title lang="zh">行走的博物馆(5):自将磨洗认前尘</title>
-  </programme>
-  <programme start="20261123213900 +0800" channel="life-fashion" stop="20261123221000 +0800">
-    <title lang="zh">原味记忆:滇南古城的街巷佳肴</title>
-  </programme>
-  <programme start="20261123221000 +0800" channel="life-fashion" stop="20261123223000 +0800">
-    <title lang="zh">大医来了:中枢瘫下肢功能的重建</title>
-  </programme>
-  <programme start="20261123223000 +0800" channel="life-fashion" stop="20261123223900 +0800">
-    <title lang="zh">日食记:锅包肉和地三鲜</title>
-  </programme>
-  <programme start="20261123223900 +0800" channel="life-fashion" stop="20261123230900 +0800">
-    <title lang="zh">健身私享课Ⅰ(2):人鱼线雕刻联盟</title>
-  </programme>
-  <programme start="20261123230900 +0800" channel="life-fashion" stop="20261123234800 +0800">
-    <title lang="zh">行走的博物馆(5):自将磨洗认前尘</title>
-  </programme>
-  <programme start="20261123234800 +0800" channel="life-fashion" stop="20261124000000 +0800">
-    <title lang="zh">健身私享课Ⅰ(2):人鱼线雕刻联盟</title>
   </programme>
 </tv>
