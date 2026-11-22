@@ -1,0 +1,6 @@
+exit_code=0
+time=2026-11-22T08:08:43Z
+user_present=no
+token_present=no
+--- output ---
+未配置 GITEE_USER / GITEE_TOKEN，跳过 Gitee 发布
