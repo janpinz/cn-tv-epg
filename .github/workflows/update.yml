@@ -10,6 +10,8 @@ on:
     paths:
       - "config/**"
       - "epg/**"
+      - "scripts/**"
+      - ".workflow/**"
       - ".github/workflows/update.yml"
 
 permissions:

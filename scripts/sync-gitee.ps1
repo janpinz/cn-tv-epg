@@ -1,14 +1,12 @@
-﻿<#
+<#
 .SYNOPSIS
     全流程同步到 Gitee：抓取 → 生成 → 发布发行版附件 → 推送代码。
-    不依赖 GitHub，可挂成 Windows 计划任务每天自动跑。
+    不依赖 GitHub，已挂成 Windows 计划任务每天自动跑。
 
 .EXAMPLE
-    # 令牌存在 %USERPROFILE%\.cn-tv-epg\gitee.token 时，直接跑
-    .\scripts\sync-gitee.ps1
-
-.EXAMPLE
-    .\scripts\sync-gitee.ps1 -Token 6ac63c8... -SkipPush
+    .\scripts\sync-gitee.ps1                    # 用 %USERPROFILE%\.cn-tv-epg\gitee.token
+    .\scripts\sync-gitee.ps1 -SkipBuild         # 只发布，不重新抓
+    .\scripts\sync-gitee.ps1 -Token xxx -SkipPush
 
 .NOTES
     本文件必须保存为 UTF-8 **带 BOM**，否则 Windows PowerShell 5.1 会按 GBK 解码导致中文乱码。
@@ -17,7 +15,8 @@ param(
     [string]$GiteeUser = 'janpin',
     [string]$Token = '',
     [switch]$SkipBuild,
-    [switch]$SkipPush
+    [switch]$SkipPush,
+    [string]$PythonPath = ''
 )
 
 # 注意：不要用 'Stop'。PowerShell 5.1 里原生命令往 stderr 写东西（比如 git 的换行符警告），
@@ -41,6 +40,16 @@ function Stop-Sync([string]$Message) {
     exit 1
 }
 
+# 计划任务里没有用户的 PATH，所以自己按优先级找可执行文件
+function Resolve-Tool([string[]]$Candidates, [string]$Name) {
+    foreach ($c in $Candidates) {
+        if ($c -and (Test-Path -LiteralPath $c)) { return $c }
+    }
+    $cmd = Get-Command $Name -ErrorAction SilentlyContinue
+    if ($cmd -and $cmd.Source -notlike '*WindowsApps*') { return $cmd.Source }
+    return $null
+}
+
 # 令牌优先级：参数 > 环境变量 > 文件
 if (-not $Token) { $Token = $env:GITEE_TOKEN }
 $tokenFile = Join-Path $logDir 'gitee.token'
@@ -55,9 +64,22 @@ Write-Log "===== 开始同步（$repoRoot） ====="
 # 让 Python 在管道里也用 UTF-8 输出，否则中文日志会 UnicodeEncodeError
 $env:PYTHONIOENCODING = 'utf-8'
 $env:PYTHONUTF8 = '1'
-$python = (Get-Command python -ErrorAction SilentlyContinue).Source
-if (-not $python) { Stop-Sync "找不到 python，请先装好 Python 3.11+" }
+
+$pythonCandidates = @(
+    $PythonPath,
+    (Join-Path $env:LOCALAPPDATA 'Programs\Python\Python312\python.exe'),
+    (Join-Path $env:LOCALAPPDATA 'Programs\Python\Python311\python.exe'),
+    'C:\Program Files\Python312\python.exe',
+    'C:\Program Files\Python311\python.exe'
+)
+$python = Resolve-Tool $pythonCandidates 'python'
+if (-not $python) { Stop-Sync "找不到 Python，请先安装 Python 3.11+（winget install Python.Python.3.12）" }
 Write-Log "Python: $python"
+
+$git = Resolve-Tool @('C:\Program Files\Git\cmd\git.exe', 'C:\Program Files (x86)\Git\cmd\git.exe') 'git'
+if (-not $git) { Stop-Sync "找不到 git，请先安装 Git" }
+$env:Path = (Split-Path -Parent $git) + ';' + $env:Path
+Write-Log "Git:    $git"
 
 if (-not $SkipBuild) {
     Write-Log "[1/4] 抓取并生成节目单"
@@ -77,15 +99,15 @@ if ($SkipPush) {
     Write-Log "[3/4] 跳过代码推送"
 } else {
     Write-Log "[3/4] 提交并推送代码到 Gitee"
-    git add -A dist data/archive
-    git diff --staged --quiet
+    & $git add -A dist data/archive
+    & $git diff --staged --quiet
     if ($LASTEXITCODE -eq 0) {
         Write-Log "  没有变化，跳过提交"
     } else {
-        git commit -q -m "chore(epg): 本地同步 $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
+        & $git commit -q -m "chore(epg): 本地同步 $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
         if ($LASTEXITCODE -ne 0) { Stop-Sync "提交失败（exit $LASTEXITCODE）" }
         $remote = "https://${GiteeUser}:${Token}@gitee.com/${GiteeUser}/cn-tv-epg.git"
-        git push $remote "HEAD:master" --force
+        & $git push $remote "HEAD:master" --force
         if ($LASTEXITCODE -ne 0) { Stop-Sync "推送失败（exit $LASTEXITCODE）" }
     }
 }

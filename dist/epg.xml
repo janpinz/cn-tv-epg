@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tv SYSTEM "xmltv.dtd">
-<tv generator-info-name="cn-tv-epg 1.0.0" generator-info-url="https://github.com/janpinz/cn-tv-epg" date="20261122162532 +0800">
+<tv generator-info-name="cn-tv-epg 1.0.0" generator-info-url="https://github.com/janpinz/cn-tv-epg" date="20261122162031 +0800">
   <channel id="cctv1">
     <display-name lang="zh">CCTV1</display-name>
     <display-name lang="zh">CCTV-1</display-name>
@@ -14638,11 +14638,11 @@
   <programme start="20261122145000 +0800" channel="nj-doc" stop="20261122152000 +0800">
     <title lang="zh">消费向导</title>
   </programme>
-  <programme start="20261122152000 +0800" channel="nj-doc" stop="20261122155000 +0800">
+  <programme start="20261122152000 +0800" channel="nj-doc" stop="20261122162000 +0800">
     <title lang="zh">家装100问</title>
   </programme>
-  <programme start="20261122155000 +0800" channel="nj-doc" stop="20261122163500 +0800">
-    <title lang="zh">休闲物语</title>
+  <programme start="20261122162000 +0800" channel="nj-doc" stop="20261122163500 +0800">
+    <title lang="zh">第一房产</title>
   </programme>
   <programme start="20261122163500 +0800" channel="nj-doc" stop="20261122171000 +0800">
     <title lang="zh">第一家装</title>
@@ -14977,11 +14977,11 @@
   <programme start="20261122144000 +0800" channel="sz-news" stop="20261122150000 +0800">
     <title lang="zh">科普新说</title>
   </programme>
-  <programme start="20261122150000 +0800" channel="sz-news" stop="20261122154000 +0800">
+  <programme start="20261122150000 +0800" channel="sz-news" stop="20261122161000 +0800">
     <title lang="zh">苏城议事厅</title>
   </programme>
-  <programme start="20261122154000 +0800" channel="sz-news" stop="20261122163000 +0800">
-    <title lang="zh">联播苏州</title>
+  <programme start="20261122161000 +0800" channel="sz-news" stop="20261122163000 +0800">
+    <title lang="zh">世界大观</title>
   </programme>
   <programme start="20261122163000 +0800" channel="sz-news" stop="20261122171500 +0800">
     <title lang="zh">苏昆传统折子戏</title>
@@ -15982,10 +15982,10 @@
   <programme start="20261122130500 +0800" channel="rg-eco" stop="20261122141000 +0800">
     <title lang="zh">经济剧场</title>
   </programme>
-  <programme start="20261122141000 +0800" channel="rg-eco" stop="20261122151500 +0800">
+  <programme start="20261122141000 +0800" channel="rg-eco" stop="20261122162000 +0800">
     <title lang="zh">经济剧场</title>
   </programme>
-  <programme start="20261122151500 +0800" channel="rg-eco" stop="20261122181000 +0800">
+  <programme start="20261122162000 +0800" channel="rg-eco" stop="20261122181000 +0800">
     <title lang="zh">经济剧场</title>
   </programme>
   <programme start="20261122181000 +0800" channel="rg-eco" stop="20261122183000 +0800">
