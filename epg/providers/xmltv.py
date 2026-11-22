@@ -50,7 +50,8 @@ class XmltvProvider(Provider):
         if not self.source.url:
             raise ValueError(f"数据源 {self.source.id} 缺少 url")
 
-        cache = self.settings.raw_dir() / self.source.id / "feed.xml"
+        # 缓存按天存放：整包 XMLTV 只覆盖当天+次日，用旧缓存会整天抓不到节目
+        cache = self.settings.raw_dir() / self.source.id / f"feed-{date.today().isoformat()}.xml"
         text = fetch_text(
             self.source.url,
             timeout=self.timeout,

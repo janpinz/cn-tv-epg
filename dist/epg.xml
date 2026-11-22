@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tv SYSTEM "xmltv.dtd">
-<tv generator-info-name="cn-tv-epg 1.0.0" generator-info-url="https://github.com/janpinz/cn-tv-epg" date="20261122160841 +0800">
+<tv generator-info-name="cn-tv-epg 1.0.0" generator-info-url="https://github.com/janpinz/cn-tv-epg" date="20261122162031 +0800">
   <channel id="cctv1">
     <display-name lang="zh">CCTV1</display-name>
     <display-name lang="zh">CCTV-1</display-name>
@@ -13012,11 +13012,11 @@
   <programme start="20261122150000 +0800" channel="js-sports" stop="20261122151000 +0800">
     <title lang="zh">荔枝健身</title>
   </programme>
-  <programme start="20261122151000 +0800" channel="js-sports" stop="20261122160000 +0800">
+  <programme start="20261122151000 +0800" channel="js-sports" stop="20261122154000 +0800">
     <title lang="zh">耍大牌</title>
   </programme>
-  <programme start="20261122160000 +0800" channel="js-sports" stop="20261122163000 +0800">
-    <title lang="zh">挑战不可能</title>
+  <programme start="20261122154000 +0800" channel="js-sports" stop="20261122163000 +0800">
+    <title lang="zh">休闲物语</title>
   </programme>
   <programme start="20261122163000 +0800" channel="js-sports" stop="20261122165000 +0800">
     <title lang="zh">休闲物语</title>
@@ -13261,11 +13261,11 @@
   <programme start="20261122140000 +0800" channel="js-cartoon" stop="20261122150000 +0800">
     <title lang="zh">故宫里的大怪兽</title>
   </programme>
-  <programme start="20261122150000 +0800" channel="js-cartoon" stop="20261122160000 +0800">
+  <programme start="20261122150000 +0800" channel="js-cartoon" stop="20261122154000 +0800">
     <title lang="zh">开心超人联盟之星之力</title>
   </programme>
-  <programme start="20261122160000 +0800" channel="js-cartoon" stop="20261122170000 +0800">
-    <title lang="zh">精灵梦叶罗丽</title>
+  <programme start="20261122154000 +0800" channel="js-cartoon" stop="20261122170000 +0800">
+    <title lang="zh">棉花糖和云朵妈妈暖心回响</title>
   </programme>
   <programme start="20261122170000 +0800" channel="js-cartoon" stop="20261122180000 +0800">
     <title lang="zh">超级飞侠</title>
@@ -13468,11 +13468,11 @@
   <programme start="20261122150000 +0800" channel="js-news" stop="20261122151000 +0800">
     <title lang="zh">百炼成钢</title>
   </programme>
-  <programme start="20261122151000 +0800" channel="js-news" stop="20261122160000 +0800">
+  <programme start="20261122151000 +0800" channel="js-news" stop="20261122154000 +0800">
     <title lang="zh">看见中国</title>
   </programme>
-  <programme start="20261122160000 +0800" channel="js-news" stop="20261122163000 +0800">
-    <title lang="zh">新闻空间站</title>
+  <programme start="20261122154000 +0800" channel="js-news" stop="20261122163000 +0800">
+    <title lang="zh">评新而论</title>
   </programme>
   <programme start="20261122163000 +0800" channel="js-news" stop="20261122164500 +0800">
     <title lang="zh">晚霞</title>
@@ -14047,11 +14047,11 @@
   <programme start="20261122123500 +0800" channel="nj-news" stop="20261122130000 +0800">
     <title lang="zh">家装100问</title>
   </programme>
-  <programme start="20261122130000 +0800" channel="nj-news" stop="20261122155000 +0800">
+  <programme start="20261122130000 +0800" channel="nj-news" stop="20261122133000 +0800">
     <title lang="zh">大刚说新闻</title>
   </programme>
-  <programme start="20261122155000 +0800" channel="nj-news" stop="20261122165200 +0800">
-    <title lang="zh">消费向导</title>
+  <programme start="20261122133000 +0800" channel="nj-news" stop="20261122165200 +0800">
+    <title lang="zh">剧场</title>
   </programme>
   <programme start="20261122165200 +0800" channel="nj-news" stop="20261122171200 +0800">
     <title lang="zh">家装100问</title>
@@ -14419,11 +14419,11 @@
   <programme start="20261122143000 +0800" channel="nj-18life" stop="20261122150000 +0800">
     <title lang="zh">生活好帮手</title>
   </programme>
-  <programme start="20261122150000 +0800" channel="nj-18life" stop="20261122160000 +0800">
+  <programme start="20261122150000 +0800" channel="nj-18life" stop="20261122153000 +0800">
     <title lang="zh">消费向导</title>
   </programme>
-  <programme start="20261122160000 +0800" channel="nj-18life" stop="20261122164000 +0800">
-    <title lang="zh">剧场</title>
+  <programme start="20261122153000 +0800" channel="nj-18life" stop="20261122164000 +0800">
+    <title lang="zh">家装100问</title>
   </programme>
   <programme start="20261122164000 +0800" channel="nj-18life" stop="20261122170400 +0800">
     <title lang="zh">生活大管家</title>
@@ -14635,11 +14635,11 @@
   <programme start="20261122142000 +0800" channel="nj-doc" stop="20261122145000 +0800">
     <title lang="zh">家装100问</title>
   </programme>
-  <programme start="20261122145000 +0800" channel="nj-doc" stop="20261122155000 +0800">
+  <programme start="20261122145000 +0800" channel="nj-doc" stop="20261122152000 +0800">
     <title lang="zh">消费向导</title>
   </programme>
-  <programme start="20261122155000 +0800" channel="nj-doc" stop="20261122162000 +0800">
-    <title lang="zh">休闲物语</title>
+  <programme start="20261122152000 +0800" channel="nj-doc" stop="20261122162000 +0800">
+    <title lang="zh">家装100问</title>
   </programme>
   <programme start="20261122162000 +0800" channel="nj-doc" stop="20261122163500 +0800">
     <title lang="zh">第一房产</title>
@@ -14926,10 +14926,10 @@
   <programme start="20261122040000 +0800" channel="nj-info" stop="20261122080000 +0800">
     <title lang="zh">家有购物</title>
   </programme>
-  <programme start="20261122080000 +0800" channel="nj-info" stop="20261122160000 +0800">
+  <programme start="20261122080000 +0800" channel="nj-info" stop="20261122120000 +0800">
     <title lang="zh">家有购物</title>
   </programme>
-  <programme start="20261122160000 +0800" channel="nj-info" stop="20261122200000 +0800">
+  <programme start="20261122120000 +0800" channel="nj-info" stop="20261122200000 +0800">
     <title lang="zh">家有购物</title>
   </programme>
   <programme start="20261122200000 +0800" channel="nj-info" stop="20261122210000 +0800">
@@ -15757,10 +15757,10 @@
   <programme start="20261122133300 +0800" channel="rg-news" stop="20261122135300 +0800">
     <title lang="zh">广游天下</title>
   </programme>
-  <programme start="20261122135300 +0800" channel="rg-news" stop="20261122160300 +0800">
+  <programme start="20261122135300 +0800" channel="rg-news" stop="20261122145800 +0800">
     <title lang="zh">新闻剧场</title>
   </programme>
-  <programme start="20261122160300 +0800" channel="rg-news" stop="20261122170800 +0800">
+  <programme start="20261122145800 +0800" channel="rg-news" stop="20261122170800 +0800">
     <title lang="zh">新闻剧场</title>
   </programme>
   <programme start="20261122170800 +0800" channel="rg-news" stop="20261122171800 +0800">
@@ -17617,11 +17617,11 @@
   <programme start="20261122130000 +0800" channel="sq-zh" stop="20261122140000 +0800">
     <title lang="zh">宿迁国开区</title>
   </programme>
-  <programme start="20261122140000 +0800" channel="sq-zh" stop="20261122160000 +0800">
+  <programme start="20261122140000 +0800" channel="sq-zh" stop="20261122150000 +0800">
     <title lang="zh">湖滨新区</title>
   </programme>
-  <programme start="20261122160000 +0800" channel="sq-zh" stop="20261122170000 +0800">
-    <title lang="zh">宿迁会客厅</title>
+  <programme start="20261122150000 +0800" channel="sq-zh" stop="20261122170000 +0800">
+    <title lang="zh">石头聊两句</title>
   </programme>
   <programme start="20261122170000 +0800" channel="sq-zh" stop="20261122180000 +0800">
     <title lang="zh">政务时空</title>
@@ -17698,11 +17698,11 @@
   <programme start="20261122100000 +0800" channel="sq-gg" stop="20261122120000 +0800">
     <title lang="zh">石头聊两句</title>
   </programme>
-  <programme start="20261122120000 +0800" channel="sq-gg" stop="20261122160000 +0800">
+  <programme start="20261122120000 +0800" channel="sq-gg" stop="20261122130000 +0800">
     <title lang="zh">宝贝计划</title>
   </programme>
-  <programme start="20261122160000 +0800" channel="sq-gg" stop="20261122170000 +0800">
-    <title lang="zh">华彩丹青</title>
+  <programme start="20261122130000 +0800" channel="sq-gg" stop="20261122170000 +0800">
+    <title lang="zh">宿迁房产</title>
   </programme>
   <programme start="20261122170000 +0800" channel="sq-gg" stop="20261122190000 +0800">
     <title lang="zh">西楚消防</title>
@@ -17884,10 +17884,10 @@
   <programme start="20261122150100 +0800" channel="kaku" stop="20261122152300 +0800">
     <title lang="zh">海绵宝宝</title>
   </programme>
-  <programme start="20261122152300 +0800" channel="kaku" stop="20261122160800 +0800">
+  <programme start="20261122152300 +0800" channel="kaku" stop="20261122154600 +0800">
     <title lang="zh">海绵宝宝</title>
   </programme>
-  <programme start="20261122160800 +0800" channel="kaku" stop="20261122163100 +0800">
+  <programme start="20261122154600 +0800" channel="kaku" stop="20261122163100 +0800">
     <title lang="zh">海绵宝宝</title>
   </programme>
   <programme start="20261122163100 +0800" channel="kaku" stop="20261122165100 +0800">

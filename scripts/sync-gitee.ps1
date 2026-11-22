@@ -1,46 +1,96 @@
-<#
+﻿<#
 .SYNOPSIS
-    把本地节目单同步到 Gitee（GitHub Actions 出问题时的备用手段）。
+    全流程同步到 Gitee：抓取 → 生成 → 发布发行版附件 → 推送代码。
+    不依赖 GitHub，可挂成 Windows 计划任务每天自动跑。
 
 .EXAMPLE
-    # 只推送现有内容
-    .\scripts\sync-gitee.ps1 -GiteeUser janpinz -Token <你的Gitee私人令牌>
+    # 令牌存在 %USERPROFILE%\.cn-tv-epg\gitee.token 时，直接跑
+    .\scripts\sync-gitee.ps1
 
 .EXAMPLE
-    # 先在本机重新抓一遍再推
-    .\scripts\sync-gitee.ps1 -GiteeUser janpinz -Token <令牌> -Build
+    .\scripts\sync-gitee.ps1 -Token 6ac63c8... -SkipPush
+
+.NOTES
+    本文件必须保存为 UTF-8 **带 BOM**，否则 Windows PowerShell 5.1 会按 GBK 解码导致中文乱码。
 #>
 param(
-    [Parameter(Mandatory = $true)][string]$GiteeUser,
-    [Parameter(Mandatory = $true)][string]$Token,
-    [switch]$Build
+    [string]$GiteeUser = 'janpin',
+    [string]$Token = '',
+    [switch]$SkipBuild,
+    [switch]$SkipPush
 )
 
-$ErrorActionPreference = 'Stop'
+# 注意：不要用 'Stop'。PowerShell 5.1 里原生命令往 stderr 写东西（比如 git 的换行符警告），
+# 在 Stop 模式下会被当成终止性错误。这里统一用 Continue，靠 $LASTEXITCODE 判断成败。
+$ErrorActionPreference = 'Continue'
 $repoRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 Set-Location $repoRoot
 
-Write-Host "仓库目录：$repoRoot"
+$logDir = Join-Path $env:USERPROFILE '.cn-tv-epg'
+New-Item -ItemType Directory -Force -Path $logDir | Out-Null
+$logFile = Join-Path $logDir 'sync.log'
 
-if ($Build) {
-    Write-Host "`n[1/3] 重新抓取节目单…"
-    python -m epg build --days 2
-    if ($LASTEXITCODE -ne 0) { throw "构建失败（exit $LASTEXITCODE）" }
+function Write-Log([string]$Message) {
+    $line = "[{0}] {1}" -f (Get-Date -Format 'yyyy-MM-dd HH:mm:ss'), $Message
+    Write-Host $line
+    Add-Content -LiteralPath $logFile -Value $line -Encoding UTF8
 }
 
-Write-Host "`n[2/3] 提交本地变更…"
-git add -A dist data/archive
-git diff --staged --quiet
-if ($LASTEXITCODE -eq 0) {
-    Write-Host "没有变化，跳过提交"
+function Stop-Sync([string]$Message) {
+    Write-Log "!! $Message"
+    exit 1
+}
+
+# 令牌优先级：参数 > 环境变量 > 文件
+if (-not $Token) { $Token = $env:GITEE_TOKEN }
+$tokenFile = Join-Path $logDir 'gitee.token'
+if (-not $Token -and (Test-Path $tokenFile)) {
+    $Token = (Get-Content -LiteralPath $tokenFile -Raw).Trim()
+}
+if (-not $Token) {
+    Stop-Sync "缺少 Gitee 令牌：请用 -Token 传入，或写入 $tokenFile"
+}
+
+Write-Log "===== 开始同步（$repoRoot） ====="
+# 让 Python 在管道里也用 UTF-8 输出，否则中文日志会 UnicodeEncodeError
+$env:PYTHONIOENCODING = 'utf-8'
+$env:PYTHONUTF8 = '1'
+$python = (Get-Command python -ErrorAction SilentlyContinue).Source
+if (-not $python) { Stop-Sync "找不到 python，请先装好 Python 3.11+" }
+Write-Log "Python: $python"
+
+if (-not $SkipBuild) {
+    Write-Log "[1/4] 抓取并生成节目单"
+    & $python -m epg build --days 2
+    if ($LASTEXITCODE -ne 0) { Stop-Sync "构建失败（exit $LASTEXITCODE）" }
 } else {
-    git commit -m "chore(epg): 本地同步 $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
+    Write-Log "[1/4] 跳过构建"
 }
 
-Write-Host "`n[3/3] 推送到 Gitee…"
-$remote = "https://${GiteeUser}:${Token}@gitee.com/${GiteeUser}/cn-tv-epg.git"
-git push $remote "HEAD:master" --force
-if ($LASTEXITCODE -ne 0) { throw "推送失败（exit $LASTEXITCODE）" }
+Write-Log "[2/4] 发布发行版附件"
+$env:GITEE_USER = $GiteeUser
+$env:GITEE_TOKEN = $Token
+& $python scripts/publish_gitee.py dist/epg.xml dist/epg.json
+if ($LASTEXITCODE -ne 0) { Stop-Sync "发布失败（exit $LASTEXITCODE）" }
 
-Write-Host "`n完成：https://gitee.com/$GiteeUser/cn-tv-epg"
-Write-Host "节目单地址：https://gitee.com/$GiteeUser/cn-tv-epg/raw/master/dist/epg.xml"
+if ($SkipPush) {
+    Write-Log "[3/4] 跳过代码推送"
+} else {
+    Write-Log "[3/4] 提交并推送代码到 Gitee"
+    git add -A dist data/archive
+    git diff --staged --quiet
+    if ($LASTEXITCODE -eq 0) {
+        Write-Log "  没有变化，跳过提交"
+    } else {
+        git commit -q -m "chore(epg): 本地同步 $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
+        if ($LASTEXITCODE -ne 0) { Stop-Sync "提交失败（exit $LASTEXITCODE）" }
+        $remote = "https://${GiteeUser}:${Token}@gitee.com/${GiteeUser}/cn-tv-epg.git"
+        git push $remote "HEAD:master" --force
+        if ($LASTEXITCODE -ne 0) { Stop-Sync "推送失败（exit $LASTEXITCODE）" }
+    }
+}
+
+Write-Log "[4/4] 完成"
+Write-Log "  节目单：https://gitee.com/$GiteeUser/cn-tv-epg/releases/download/data/epg.xml"
+Write-Log "  仓库：  https://gitee.com/$GiteeUser/cn-tv-epg"
+Write-Log "===== 同步结束 ====="
