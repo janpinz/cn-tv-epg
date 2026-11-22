@@ -71,8 +71,9 @@ jobs:
         if: github.ref == 'refs/heads/main'
         continue-on-error: true
         env:
-          GITEE_USER: ${{ secrets.GITEE_USER }}
-          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+          # 优先用 Secrets；如果配成了 Variables 也能直接用
+          GITEE_USER: ${{ secrets.GITEE_USER || vars.GITEE_USER }}
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN || vars.GITEE_TOKEN }}
         run: |
           set +e
           python scripts/publish_gitee.py dist/epg.xml dist/epg.json > /tmp/gitee.log 2>&1
@@ -98,8 +99,8 @@ jobs:
         if: github.ref == 'refs/heads/main'
         continue-on-error: true
         env:
-          GITEE_USER: ${{ secrets.GITEE_USER }}
-          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+          GITEE_USER: ${{ secrets.GITEE_USER || vars.GITEE_USER }}
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN || vars.GITEE_TOKEN }}
         run: |
           if [ -z "$GITEE_TOKEN" ] || [ -z "$GITEE_USER" ]; then
             echo "::notice::未配置 GITEE_USER / GITEE_TOKEN，跳过代码镜像"
