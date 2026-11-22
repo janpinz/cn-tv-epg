@@ -31,6 +31,9 @@ jobs:
       pages: ${{ steps.pages.outputs.enabled }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # 必须是完整历史：Gitee 拒绝从浅克隆推送（shallow update not allowed）
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
