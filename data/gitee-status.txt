@@ -1,11 +1,11 @@
 exit_code=0
-time=2026-11-24T06:22:06Z
+time=2026-11-25T05:03:04Z
 user_present=yes
 token_present=yes
 --- output ---
-已删除旧发行版 id=1356023
-发行版 tag=data id=1361681
-  已上传 epg.xml (998,377 字节)
+已删除旧发行版 id=1361681
+发行版 tag=data id=1365785
+  已上传 epg.xml (960,684 字节)
     https://gitee.com/janpin/cn-tv-epg/releases/download/data/epg.xml
-  已上传 epg.json (982,336 字节)
+  已上传 epg.json (944,515 字节)
     https://gitee.com/janpin/cn-tv-epg/releases/download/data/epg.json
